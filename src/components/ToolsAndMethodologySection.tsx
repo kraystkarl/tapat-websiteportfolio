@@ -52,13 +52,13 @@ export const ToolsAndMethodologySection: React.FC = () => {
           name: 'PlanSwift',
           role: 'Commercial Take-offs (3 Yrs)',
           badge: 'DeepBluee (60+ Projects)',
-          logo: '/assets/software/planswift-logo.png',
+          logo: '/assets/software/planswift-logo.svg',
         },
         {
           name: 'Bluebeam Revu',
           role: 'Digital Take-offs & Markups',
           badge: 'Proof Pack Calibration',
-          logo: '/assets/software/bluebeam-logo.png',
+          logo: '/assets/software/bluebeam-logo.svg',
         },
         {
           name: 'Microsoft Excel',
