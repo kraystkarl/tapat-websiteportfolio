@@ -2,7 +2,7 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* ========================================================================== 
+/* ==========================================================================
    Apple iOS Typography System: Consolidated 3-Font Architecture
    1. Primary Display / Headings: SF Pro Display
    2. Primary Interface / Body:    SF Pro Text
@@ -121,7 +121,7 @@
   --font-mono: 'SF Mono', SFMono-Regular, ui-monospace, Menlo, Monaco, Consolas, monospace;
 }
 
-/* ========================================================================== 
+/* ==========================================================================
    Cohesive Industrial & Construction Color Architecture (Light & Dark Themes)
    70-85% Neutrals / Canvas | 10-20% Structural Grays | <=5% High-Signal Accents
    ========================================================================== */
