@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="100%" height="100%">
+  <!-- Background sheet with grid -->
+  <path fill="#107c41" d="M28.5,4H14.5C12.01,4,10,6.01,10,8.5v31c0,2.49,2.01,4.5,4.5,4.5h21c2.49,0,4.5-2.01,4.5-4.5V17L28.5,4z"/>
+  <path fill="#185a30" d="M28.5,4v13H40L28.5,4z"/>
+  <path fill="#0c4a24" opacity=".2" d="M28.5,17H40l-0.5,1H28.5V17z"/>
+  <!-- Grid lines -->
+  <rect fill="#ffffff" opacity=".35" x="22" y="22" width="14" height="2"/>
+  <rect fill="#ffffff" opacity=".35" x="22" y="27" width="14" height="2"/>
+  <rect fill="#ffffff" opacity=".35" x="22" y="32" width="14" height="2"/>
+  <rect fill="#ffffff" opacity=".35" x="22" y="37" width="14" height="2"/>
+  <rect fill="#ffffff" opacity=".35" x="28" y="21" width="2" height="19"/>
+  <!-- Front card with X -->
+  <path fill="#21a366" d="M25,18H9c-1.66,0-3,1.34-3,3v18c0,1.66,1.34,3,3,3h16c1.66,0,3-1.34,3-3V21C28,19.34,26.66,18,25,18z"/>
+  <polygon fill="#ffffff" points="19.4,36.5 16.9,31.8 14.4,36.5 11.2,36.5 15.3,29.9 11.5,23.5 14.8,23.5 17,28.1 19.1,23.5 22.4,23.5 18.6,29.8 22.8,36.5"/>
+</svg>
