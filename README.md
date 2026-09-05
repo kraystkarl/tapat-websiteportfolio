@@ -1,5 +1,20 @@
-# Christ Carl Tapat — Construction Estimator Portfolio
+<div align="center">
+<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
+</div>
 
-Live portfolio deployment for Christ Carl Tapat.
+# Run and deploy your AI Studio app
 
-Repository synchronized with the production website source.
+This contains everything you need to run your app locally.
+
+View your app in AI Studio: https://ai.studio/apps/4e00b04a-7cef-46a3-b9b0-199252d157b7
+
+## Run Locally
+
+**Prerequisites:**  Node.js
+
+
+1. Install dependencies:
+   `npm install`
+2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
+3. Run the app:
+   `npm run dev`
