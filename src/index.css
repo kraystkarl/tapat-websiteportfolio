@@ -1,0 +1,627 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ==========================================================================
+   Apple iOS Typography System: Consolidated 3-Font Architecture
+   1. Primary Display / Headings: SF Pro Display
+   2. Primary Interface / Body:    SF Pro Text
+   3. Technical / Metadata:       SF Mono
+   ========================================================================== */
+
+/* SF Pro Display (Role 1: Headings, Hero titles, Major statistics) */
+@font-face {
+  font-family: 'SF Pro Display';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('SF Pro Display Regular'), local('SF Pro Display'), local('SFProDisplay-Regular'),
+       url('https://cdn.jsdelivr.net/npm/sf-pro@1.0.3/font/woff2/sf-pro-display_regular.woff2') format('woff2'),
+       url('https://fonts.cdnfonts.com/s/59278/SFPRODISPLAYREGULAR.woff') format('woff');
+}
+@font-face {
+  font-family: 'SF Pro Display';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: local('SF Pro Display Medium'), local('SFProDisplay-Medium'),
+       url('https://cdn.jsdelivr.net/npm/sf-pro@1.0.3/font/woff2/sf-pro-display_medium.woff2') format('woff2'),
+       url('https://fonts.cdnfonts.com/s/59278/SFPRODISPLAYMEDIUM.woff') format('woff');
+}
+@font-face {
+  font-family: 'SF Pro Display';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: local('SF Pro Display Semibold'), local('SFProDisplay-Semibold'),
+       url('https://cdn.jsdelivr.net/npm/sf-pro@1.0.3/font/woff2/sf-pro-display_semibold.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'SF Pro Display';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('SF Pro Display Bold'), local('SFProDisplay-Bold'),
+       url('https://cdn.jsdelivr.net/npm/sf-pro@1.0.3/font/woff2/sf-pro-display_bold.woff2') format('woff2');
+}
+
+/* SF Pro Text (Role 2: Interface, Body, Navigation, Buttons, Labels) */
+@font-face {
+  font-family: 'SF Pro Text';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('SF Pro Text Regular'), local('SF Pro Text'), local('SFProText-Regular'),
+       url('https://cdn.jsdelivr.net/npm/sf-pro@1.0.3/font/woff2/sf-pro-text_regular.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'SF Pro Text';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: local('SF Pro Text Medium'), local('SFProText-Medium'),
+       url('https://cdn.jsdelivr.net/npm/sf-pro@1.0.3/font/woff2/sf-pro-text_medium.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'SF Pro Text';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: local('SF Pro Text Semibold'), local('SFProText-Semibold'),
+       url('https://cdn.jsdelivr.net/npm/sf-pro@1.0.3/font/woff2/sf-pro-text_semibold.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'SF Pro Text';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('SF Pro Text Bold'), local('SFProText-Bold'),
+       url('https://cdn.jsdelivr.net/npm/sf-pro@1.0.3/font/woff2/sf-pro-text_bold.woff2') format('woff2');
+}
+
+/* SF Mono (Role 3: Technical, Metadata, Codes, Dimensions, Tabular Figures) */
+@font-face {
+  font-family: 'SF Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('SF Mono Regular'), local('SF Mono'), local('SFMono-Regular'),
+       url('https://fonts.cdnfonts.com/s/22256/SFMonoRegular.woff') format('woff');
+}
+@font-face {
+  font-family: 'SF Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: local('SF Mono Medium'), local('SFMono-Medium'),
+       url('https://fonts.cdnfonts.com/s/22256/SFMonoMedium.woff') format('woff');
+}
+@font-face {
+  font-family: 'SF Mono';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: local('SF Mono Semibold'), local('SFMono-Semibold'),
+       url('https://fonts.cdnfonts.com/s/22256/SFMonoSemibold.woff') format('woff');
+}
+@font-face {
+  font-family: 'SF Mono';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('SF Mono Bold'), local('SFMono-Bold'),
+       url('https://fonts.cdnfonts.com/s/22256/SFMonoBold.woff') format('woff');
+}
+
+@theme {
+  --font-display: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'SF Pro', system-ui, sans-serif;
+  --font-body: 'SF Pro Text', -apple-system-body, -apple-system, BlinkMacSystemFont, 'SF Pro', system-ui, sans-serif;
+  --font-sans: 'SF Pro Text', -apple-system-body, -apple-system, BlinkMacSystemFont, 'SF Pro', system-ui, sans-serif;
+  --font-technical: 'SF Mono', SFMono-Regular, ui-monospace, Menlo, Monaco, Consolas, monospace;
+  --font-mono: 'SF Mono', SFMono-Regular, ui-monospace, Menlo, Monaco, Consolas, monospace;
+}
+
+/* ==========================================================================
+   Cohesive Industrial & Construction Color Architecture (Light & Dark Themes)
+   70-85% Neutrals / Canvas | 10-20% Structural Grays | <=5% High-Signal Accents
+   ========================================================================== */
+
+:root,
+[data-theme="light"] {
+  /* --- Consolidated 3-Font Typography System Tokens --- */
+  --font-display: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'SF Pro', system-ui, sans-serif;
+  --font-body: 'SF Pro Text', -apple-system-body, -apple-system, BlinkMacSystemFont, 'SF Pro', system-ui, sans-serif;
+  --font-technical: 'SF Mono', SFMono-Regular, ui-monospace, Menlo, Monaco, Consolas, monospace;
+  --font-sans: var(--font-body);
+  --font-mono: var(--font-technical);
+
+  /* --- 70-85% BACKGROUNDS (Off-white, bone, pale concrete: #EEEEEE -> #FAFAFA) --- */
+  --bg-primary: #FAFAFA;
+  --bg-canvas: #FAFAFA;
+  --bg-subtle: #F3F4F6;
+  --bg-surface: #FFFFFF;
+
+  /* --- 10-20% STRUCTURES (Cool steel gray & mid-tone ash: #AAAAAA and surrounding) --- */
+  --surface-card: #FFFFFF;
+  --border-subtle: #D4D4D8;
+  --border-structure: #AAAAAA;
+  --border-strong: #71717A;
+  
+  /* --- TEXT & ICONS (Deep charcoal / graphite: #1A1A1A) --- */
+  --text-primary: #1A1A1A;
+  --text-secondary: #4A4A4A;
+  --text-muted: #6B7280;
+
+  /* --- HIGH-SIGNAL FUNCTIONAL ACCENTS (<=5%) --- */
+  --accent-safety-orange: #FF5600; /* Dominant CTA & active signal */
+  --accent-industrial-yellow: #CC8400; /* System highlights, badges & equipment indicators */
+  --accent-rust: #9A6226; /* Earthy restrained engineering accent */
+
+  --accent-interactive: #FF5600;
+  --accent-hover: #E04C00;
+  --accent-foreground: #FFFFFF;
+  --accent-subtle: rgba(255, 86, 0, 0.08);
+
+  /* Aliases */
+  --ios-bg: var(--bg-primary);
+  --ios-surface: var(--surface-card);
+  --ios-card: #FFFFFF;
+  --ios-card-border: #D4D4D8;
+  --ios-text-primary: var(--text-primary);
+  --ios-text-secondary: var(--text-secondary);
+  --ios-text-tertiary: var(--text-muted);
+  --ios-accent-amber: var(--accent-industrial-yellow);
+  --ios-accent-orange: var(--accent-safety-orange);
+  --ios-accent-rust: var(--accent-rust);
+  --ios-shadow: 0 2px 12px rgba(26, 26, 26, 0.04);
+  --ios-subtle-bg: #F4F4F5;
+}
+
+[data-theme="dark"],
+.dark {
+  /* --- 70-85% BACKGROUNDS (Activated charcoal / near-black: #020001) --- */
+  --bg-primary: #020001;
+  --bg-canvas: #020001;
+  --bg-subtle: #0D0D0F;
+  --bg-surface: #121214;
+
+  /* --- 10-20% STRUCTURES (Slate and gunmetal gray: #333333 -> #555555) --- */
+  --surface-card: #121214;
+  --border-subtle: #333333;
+  --border-structure: #444444;
+  --border-strong: #555555;
+
+  /* --- TEXT & ICONS (Soft bone / light silver: #E0E0E0) --- */
+  --text-primary: #E0E0E0;
+  --text-secondary: #9E9E9E;
+  --text-muted: #737373;
+
+  /* --- HIGH-SIGNAL FUNCTIONAL ACCENTS (<=5%) --- */
+  --accent-safety-orange: #FF5600;
+  --accent-industrial-yellow: #CC8400;
+  --accent-rust: #9A6226;
+
+  --accent-interactive: #FF5600;
+  --accent-hover: #FF6E24;
+  --accent-foreground: #020001;
+  --accent-subtle: rgba(255, 86, 0, 0.12);
+
+  /* Aliases */
+  --ios-bg: var(--bg-primary);
+  --ios-surface: var(--surface-card);
+  --ios-card: #121214;
+  --ios-card-border: #333333;
+  --ios-text-primary: var(--text-primary);
+  --ios-text-secondary: var(--text-secondary);
+  --ios-text-tertiary: var(--text-muted);
+  --ios-accent-amber: var(--accent-industrial-yellow);
+  --ios-accent-orange: var(--accent-safety-orange);
+  --ios-accent-rust: var(--accent-rust);
+  --ios-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+  --ios-subtle-bg: #1A1A1D;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]):not(.light) {
+    --bg-primary: #020001;
+    --bg-canvas: #020001;
+    --bg-subtle: #0D0D0F;
+    --bg-surface: #121214;
+    --surface-card: #121214;
+    --border-subtle: #333333;
+    --border-structure: #444444;
+    --border-strong: #555555;
+    --text-primary: #E0E0E0;
+    --text-secondary: #9E9E9E;
+    --text-muted: #737373;
+    --accent-safety-orange: #FF5600;
+    --accent-industrial-yellow: #CC8400;
+    --accent-rust: #9A6226;
+    --accent-interactive: #FF5600;
+    --accent-hover: #FF6E24;
+    --accent-foreground: #020001;
+    --accent-subtle: rgba(255, 86, 0, 0.12);
+    --ios-bg: var(--bg-primary);
+    --ios-surface: var(--surface-card);
+    --ios-card: #121214;
+    --ios-card-border: #333333;
+    --ios-text-primary: var(--text-primary);
+    --ios-text-secondary: var(--text-secondary);
+    --ios-text-tertiary: var(--text-muted);
+    --ios-accent-amber: var(--accent-industrial-yellow);
+    --ios-accent-orange: var(--accent-safety-orange);
+    --ios-accent-rust: var(--accent-rust);
+    --ios-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+    --ios-subtle-bg: #1A1A1D;
+  }
+}
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  
+  html, body, #root {
+    background-color: var(--ios-bg);
+    color: var(--ios-text-primary);
+    font-family: var(--font-body);
+    letter-spacing: -0.005em;
+    scroll-behavior: smooth;
+    min-height: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* TYPOGRAPHIC ROLE 1: PRIMARY DISPLAY / HEADINGS (SF Pro Display)
+     Use for: Hero headlines, major section headings, large titles, important numerical displays */
+  h1, h2, h3, h4,
+  .font-display,
+  .font-apple-display,
+  .font-sf-display {
+    font-family: var(--font-display);
+    letter-spacing: -0.025em;
+  }
+
+  /* TYPOGRAPHIC ROLE 2: PRIMARY INTERFACE / BODY (SF Pro Text)
+     Use for: Paragraphs, descriptions, navigation, buttons, labels, input fields, general interface text */
+  p, span, a, button, input, textarea,
+  .font-body,
+  .font-sans,
+  .font-apple-text,
+  .font-sf-text {
+    font-family: var(--font-body);
+    letter-spacing: -0.005em;
+  }
+
+  /* TYPOGRAPHIC ROLE 3: TECHNICAL / METADATA (SF Mono)
+     Use for: Project metadata, dimensions, technical labels, estimator terminology, dates, document references */
+  code, pre,
+  .font-technical,
+  .font-mono,
+  .font-apple-mono,
+  .font-sf-mono {
+    font-family: var(--font-technical);
+    font-feature-settings: "zero" 1, "tnum" 1;
+    letter-spacing: -0.01em;
+  }
+
+  /* Aliases for graceful backward compatibility */
+  .font-apple-rounded, .font-sf-rounded, .font-rounded {
+    font-family: var(--font-display);
+    letter-spacing: -0.015em;
+  }
+  .font-new-york, .font-apple-serif, .font-editorial, .font-serif {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+
+  /* Semantic Typographic Classes */
+  .typography-hero {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.08;
+  }
+  .typography-heading {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.15;
+  }
+  .typography-subheading {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.018em;
+    line-height: 1.25;
+  }
+  .typography-body {
+    font-family: var(--font-body);
+    font-weight: 400;
+    letter-spacing: -0.005em;
+    line-height: 1.6;
+  }
+  .typography-interface,
+  .typography-label {
+    font-family: var(--font-body);
+    font-weight: 500;
+    letter-spacing: -0.005em;
+    line-height: 1.4;
+  }
+  .typography-technical {
+    font-family: var(--font-technical);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    font-feature-settings: "zero" 1, "tnum" 1;
+  }
+  .typography-metadata,
+  .typography-caption {
+    font-family: var(--font-technical);
+    font-weight: 400;
+    letter-spacing: 0em;
+    font-feature-settings: "zero" 1, "tnum" 1;
+  }
+}
+
+/* Apple iOS Glass Materials & Liquid Glass Design System */
+.liquid-glass {
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(24px) saturate(190%);
+  -webkit-backdrop-filter: blur(24px) saturate(190%);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 
+    0 4px 20px -2px rgba(0, 0, 0, 0.03),
+    0 0 0 1px rgba(255, 255, 255, 0.7) inset;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dark .liquid-glass {
+  background: rgba(18, 18, 22, 0.76);
+  backdrop-filter: blur(28px) saturate(190%);
+  -webkit-backdrop-filter: blur(28px) saturate(190%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0 8px 32px -4px rgba(0, 0, 0, 0.5),
+    0 1px 0 0 rgba(255, 255, 255, 0.08) inset;
+}
+
+.liquid-glass-pill {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(20px) saturate(190%);
+  -webkit-backdrop-filter: blur(20px) saturate(190%);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 
+    0 2px 12px rgba(0, 0, 0, 0.03),
+    0 1px 0 0 rgba(255, 255, 255, 0.9) inset;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dark .liquid-glass-pill {
+  background: rgba(22, 22, 26, 0.82);
+  backdrop-filter: blur(20px) saturate(190%);
+  -webkit-backdrop-filter: blur(20px) saturate(190%);
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.4),
+    0 1px 0 0 rgba(255, 255, 255, 0.1) inset;
+}
+
+.liquid-card {
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  box-shadow: 
+    0 1px 3px rgba(0, 0, 0, 0.02),
+    0 12px 30px -8px rgba(0, 0, 0, 0.04),
+    0 1px 0 0 rgba(255, 255, 255, 0.95) inset;
+  transition: border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dark .liquid-card {
+  background: #131316;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 
+    0 1px 3px rgba(0, 0, 0, 0.3),
+    0 16px 40px -10px rgba(0, 0, 0, 0.6),
+    0 1px 0 0 rgba(255, 255, 255, 0.06) inset;
+}
+
+.apple-glass {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  box-shadow: var(--ios-shadow);
+  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dark .apple-glass {
+  background: rgba(18, 18, 22, 0.8);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  box-shadow: var(--ios-shadow);
+}
+
+.apple-glass-card {
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dark .apple-glass-card {
+  background: #131316;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+}
+
+.apple-glass-subtle {
+  background: rgba(244, 244, 246, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.dark .apple-glass-subtle {
+  background: rgba(24, 24, 28, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.apple-window-frame {
+  box-shadow: 
+    0 24px 60px rgba(0, 0, 0, 0.15), 
+    0 0 0 1px var(--ios-card-border);
+}
+
+.dark .apple-window-frame {
+  box-shadow: 
+    0 30px 80px rgba(0, 0, 0, 0.65), 
+    0 0 0 1px rgba(255, 255, 255, 0.1),
+    0 1px 0 0 rgba(255, 255, 255, 0.15) inset;
+}
+
+/* macOS Traffic Light Buttons */
+.traffic-light-red {
+  background-color: #FF5F56;
+  border: 1px solid #E0443E;
+}
+.traffic-light-yellow {
+  background-color: #FFBD2E;
+  border: 1px solid #DEA123;
+}
+.traffic-light-green {
+  background-color: #27C93F;
+  border: 1px solid #1AAB29;
+}
+
+/* Industrial Construction Accents */
+.text-safety-orange {
+  color: #FF5600;
+}
+.bg-safety-orange {
+  background-color: #FF5600;
+}
+.border-safety-orange {
+  border-color: #FF5600;
+}
+
+.text-industrial-yellow {
+  color: #CC8400;
+}
+.bg-industrial-yellow {
+  background-color: #CC8400;
+}
+.border-industrial-yellow {
+  border-color: #CC8400;
+}
+
+.text-rust {
+  color: #9A6226;
+}
+.bg-rust {
+  background-color: #9A6226;
+}
+.border-rust {
+  border-color: #9A6226;
+}
+
+/* Backward-compatible Industrial Color Tokens */
+.bg-industrial-black {
+  background-color: #020001;
+}
+
+.bg-industrial-card {
+  background-color: #121214;
+}
+
+.bg-industrial-panel {
+  background-color: #1E1E22;
+}
+
+.bg-industrial-recess {
+  background-color: #08080A;
+}
+
+.text-steel-muted {
+  color: #9E9E9E;
+}
+
+.border-industrial {
+  border-color: #333333;
+}
+
+.border-industrial-focus {
+  border-color: rgba(255, 86, 0, 0.4);
+}
+
+/* Subtle Industrial Grid Background Pattern */
+.bg-grid-industrial {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.bg-dot-industrial {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Ambient Technical Radial Accents */
+.ambient-amber-glow {
+  background: radial-gradient(circle at center, rgba(245, 158, 11, 0.08) 0%, rgba(245, 158, 11, 0) 70%);
+}
+
+.ambient-cyan-glow {
+  background: radial-gradient(circle at center, rgba(6, 182, 212, 0.08) 0%, rgba(6, 182, 212, 0) 70%);
+}
+
+/* Custom iOS Minimalist Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--ios-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(142, 142, 147, 0.35);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(142, 142, 147, 0.6);
+}
+
+/* Media & Non-PDF Image Download Protection */
+img,
+canvas,
+.no-download-media {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+/* Subtle, Purposeful UI Transitions & Animations */
+@keyframes subtleFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-subtle-fade-in {
+  animation: subtleFadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+
+

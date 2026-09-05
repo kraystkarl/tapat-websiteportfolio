@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <defs>
+    <linearGradient id="ai-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF5600" />
+      <stop offset="100%" stop-color="#CC8400" />
+    </linearGradient>
+  </defs>
+  <rect width="100" height="100" rx="22" fill="url(#ai-grad)" />
+  <!-- Sparkle / Neural star -->
+  <path d="M50 20 C50 36 36 50 20 50 C36 50 50 64 50 80 C50 64 64 50 80 50 C64 50 50 36 50 20 Z" fill="#FFFFFF" />
+  <circle cx="70" cy="28" r="4" fill="#FFFFFF" opacity="0.9" />
+  <circle cx="30" cy="72" r="3" fill="#FFFFFF" opacity="0.8" />
+</svg>

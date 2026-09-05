@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <rect width="100" height="100" rx="22" fill="#E84A27" />
+  <!-- Lumion stylized L / 3D block -->
+  <path d="M28 24 L52 24 L52 64 L74 64 L74 76 L28 76 Z" fill="#FFFFFF" />
+  <polygon points="52,24 68,36 52,48" fill="#FFC2B3" opacity="0.9" />
+</svg>
