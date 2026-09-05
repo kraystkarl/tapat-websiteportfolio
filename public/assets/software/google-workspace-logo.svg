@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 96" role="img" aria-label="GOOGLE WORKSPACE">
+  <rect width="320" height="96" rx="18" fill="#151515"/>
+  <rect x="14" y="14" width="68" height="68" rx="14" fill="#CC8400"/>
+  <path d="M33 61h30M33 47h30M42 33h12" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+  <text x="98" y="45" fill="#F3F3F3" font-family="Arial, sans-serif" font-size="22" font-weight="700">GOOGLE WORKSPACE</text>
+  <text x="98" y="68" fill="#B7B7B7" font-family="Arial, sans-serif" font-size="13">cloud collaboration</text>
+</svg>
