@@ -36,15 +36,15 @@ export const ProofModal: React.FC<ProofModalProps> = ({ isOpen, onClose, documen
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 md:p-8 bg-black/70 backdrop-blur-xl overflow-hidden transition-opacity duration-200"
+      className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-6 md:p-8 bg-black/80 backdrop-blur-xl overflow-hidden transition-opacity duration-200"
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-6xl h-[88vh] max-h-[840px] liquid-card border border-black/[0.08] dark:border-white/[0.12] rounded-3xl flex flex-col shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-200"
+        className="relative w-full max-w-6xl h-[92vh] sm:h-[88vh] max-h-[840px] liquid-card border border-black/[0.08] dark:border-white/[0.12] rounded-2xl sm:rounded-3xl flex flex-col shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-200"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Modal Header */}
-        <div className="flex flex-wrap items-center justify-between px-5 py-3.5 border-b border-black/[0.05] dark:border-white/[0.06] bg-[#F7F7F8]/90 dark:bg-[#121215]/90 backdrop-blur-md gap-3">
+        <div className="flex flex-wrap items-center justify-between px-5 py-3.5 border-b border-black/[0.05] dark:border-white/[0.06] bg-[#F5F4EF]/90 dark:bg-[#0C0C0F]/90 backdrop-blur-md gap-3">
           <div className="flex items-center gap-3 min-w-0">
             <div className="p-1.5 rounded-xl bg-black/[0.03] dark:bg-white/[0.05] text-[#FF5600] flex-shrink-0">
               {isPdf ? <FileText className="w-4 h-4" /> : <ImageIcon className="w-4 h-4" />}
@@ -120,7 +120,7 @@ export const ProofModal: React.FC<ProofModalProps> = ({ isOpen, onClose, documen
         </div>
 
         {/* Footer */}
-        <div className="px-5 py-2.5 border-t border-black/[0.05] dark:border-white/[0.06] bg-[#F7F7F8]/90 dark:bg-[#121215]/90 backdrop-blur-md flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-xs font-apple-mono text-[#4A4A4A] dark:text-[#9E9E9E]">
+        <div className="px-5 py-2.5 border-t border-black/[0.05] dark:border-white/[0.06] bg-[#F5F4EF]/90 dark:bg-[#0C0C0F]/90 backdrop-blur-md flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-xs font-apple-mono text-[#4A4A4A] dark:text-[#9E9E9E]">
           <span className="truncate max-w-2xl text-[#4A4A4A] dark:text-[#9E9E9E]">
             {documentItem.description || 'Verified architectural take-off & estimating documentation.'}
           </span>

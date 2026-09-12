@@ -33,7 +33,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
         onClick={(e) => e.stopPropagation()}
       >
         {/* Modal Header */}
-        <div className="flex items-center justify-between px-5 py-3.5 border-b border-black/[0.05] dark:border-white/[0.06] bg-[#F7F7F8]/90 dark:bg-[#121215]/90 backdrop-blur-md gap-3">
+        <div className="flex items-center justify-between px-5 py-3.5 border-b border-black/[0.05] dark:border-white/[0.06] bg-[#F5F4EF]/90 dark:bg-[#0C0C0F]/90 backdrop-blur-md gap-3">
           <div className="flex items-center gap-3 min-w-0">
             <div className="p-2 rounded-xl bg-[#FF5600]/10 text-[#FF5600] flex-shrink-0">
               <Calendar className="w-4 h-4" />
@@ -77,7 +77,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
         </div>
 
         {/* Modal Footer with clear exit context */}
-        <div className="px-5 py-2.5 bg-[#F7F7F8]/90 dark:bg-[#121215]/90 backdrop-blur-md border-t border-black/[0.05] dark:border-white/[0.06] flex items-center justify-between text-[11px] font-apple-mono text-[#4A4A4A] dark:text-[#9E9E9E]">
+        <div className="px-5 py-2.5 bg-[#F5F4EF]/90 dark:bg-[#0C0C0F]/90 backdrop-blur-md border-t border-black/[0.05] dark:border-white/[0.06] flex items-center justify-between text-[11px] font-apple-mono text-[#4A4A4A] dark:text-[#9E9E9E]">
           <span>Need to email instead? <a href="mailto:engr.christcarl@gmail.com" className="text-[#FF5600] hover:underline font-medium">engr.christcarl@gmail.com</a></span>
           <button
             type="button"

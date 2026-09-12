@@ -8,7 +8,8 @@ import {
   RotateCcw,
   Loader2,
   Maximize2,
-  AlertCircle
+  AlertCircle,
+  ExternalLink
 } from 'lucide-react';
 
 // Configure the worker to use the local worker script in public/
@@ -32,10 +33,17 @@ export const PdfCanvasViewer: React.FC<PdfCanvasViewerProps> = ({
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
+  const getResponsiveDefaultScale = () => {
+    if (typeof window === 'undefined') return 1.1;
+    if (window.innerWidth < 640) return 0.65;
+    if (window.innerWidth < 1024) return 0.95;
+    return 1.25;
+  };
+
   const [pdfDoc, setPdfDoc] = useState<pdfjsLib.PDFDocumentProxy | null>(null);
   const [pageNum, setPageNum] = useState<number>(1);
   const [numPages, setNumPages] = useState<number>(1);
-  const [scale, setScale] = useState<number>(1.25);
+  const [scale, setScale] = useState<number>(getResponsiveDefaultScale);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [renderTask, setRenderTask] = useState<any>(null);
@@ -44,33 +52,60 @@ export const PdfCanvasViewer: React.FC<PdfCanvasViewerProps> = ({
   // Load document when url changes
   useEffect(() => {
     let isCancelled = false;
+    let currentLoadingTask: any = null;
     setLoading(true);
     setError(null);
     setPageNum(1);
 
-    const loadingTask = pdfjsLib.getDocument({
-      url,
-      cMapUrl: 'https://unpkg.com/pdfjs-dist@3.11.174/cmaps/',
-      cMapPacked: true,
-    });
+    const loadPdf = async () => {
+      try {
+        const response = await fetch(url);
+        if (!response.ok) {
+          throw new Error(`Failed to load document (${response.status} ${response.statusText})`);
+        }
+        const arrayBuffer = await response.arrayBuffer();
+        if (isCancelled) return;
 
-    loadingTask.promise
-      .then((doc) => {
+        // Verify PDF signature (%PDF-)
+        const bytes = new Uint8Array(arrayBuffer.slice(0, 5));
+        const isPdfHeader =
+          bytes[0] === 0x25 &&
+          bytes[1] === 0x50 &&
+          bytes[2] === 0x44 &&
+          bytes[3] === 0x46 &&
+          bytes[4] === 0x2d;
+
+        if (!isPdfHeader) {
+          throw new Error('Invalid PDF format or resource not found.');
+        }
+
+        const loadingTask = pdfjsLib.getDocument({
+          data: new Uint8Array(arrayBuffer),
+          cMapUrl: 'https://unpkg.com/pdfjs-dist@3.11.174/cmaps/',
+          cMapPacked: true,
+        });
+        currentLoadingTask = loadingTask;
+
+        const doc = await loadingTask.promise;
         if (isCancelled) return;
         setPdfDoc(doc);
         setNumPages(doc.numPages);
         setLoading(false);
-      })
-      .catch((err) => {
+      } catch (err: any) {
         if (isCancelled) return;
-        console.error('PDF.js failed to load document:', err);
-        setError('Failed to load PDF document.');
+        console.warn('PDF document load warning:', err?.message || err);
+        setError(err?.message || 'Failed to load PDF document.');
         setLoading(false);
-      });
+      }
+    };
+
+    loadPdf();
 
     return () => {
       isCancelled = true;
-      loadingTask.destroy().catch(() => {});
+      if (currentLoadingTask) {
+        currentLoadingTask.destroy().catch(() => {});
+      }
     };
   }, [url, retryCount]);
 
@@ -140,7 +175,7 @@ export const PdfCanvasViewer: React.FC<PdfCanvasViewerProps> = ({
   };
 
   const handleResetZoom = () => {
-    setScale(1.25);
+    setScale(getResponsiveDefaultScale());
   };
 
   const handlePrevPage = () => {
@@ -265,14 +300,25 @@ export const PdfCanvasViewer: React.FC<PdfCanvasViewerProps> = ({
             <p className="text-xs font-apple-mono text-[#9E9E9E] max-w-sm">
               {error}
             </p>
-            <button
-              type="button"
-              onClick={() => setRetryCount((prev) => prev + 1)}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#18181B] border border-[#333333] hover:border-[#FF5600]/40 text-[#E0E0E0] font-semibold text-xs font-apple-mono transition-colors cursor-pointer"
-            >
-              <RotateCcw className="w-3.5 h-3.5 text-[#FF5600]" />
-              <span>Retry Rendering</span>
-            </button>
+            <div className="flex flex-wrap items-center justify-center gap-2 mt-1">
+              <button
+                type="button"
+                onClick={() => setRetryCount((prev) => prev + 1)}
+                className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-[#18181B] border border-[#333333] hover:border-[#FF5600]/40 text-[#E0E0E0] font-semibold text-xs font-apple-mono transition-colors cursor-pointer"
+              >
+                <RotateCcw className="w-3.5 h-3.5 text-[#FF5600]" />
+                <span>Retry</span>
+              </button>
+              <a
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-[#FF5600] text-white font-semibold text-xs font-apple-mono hover:bg-[#E04C00] transition-colors shadow-xs"
+              >
+                <ExternalLink className="w-3.5 h-3.5" />
+                <span>Open PDF Directly</span>
+              </a>
+            </div>
           </div>
         ) : (
           <div className="bg-white rounded-lg shadow-2xl p-1 inline-block transition-all duration-150 select-none">

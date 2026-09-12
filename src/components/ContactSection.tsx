@@ -16,221 +16,176 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenBooking })
   };
 
   return (
-    <section id="contact" className="py-20 sm:py-28 bg-transparent relative scroll-mt-20">
-      {/* Background Subtle Ambient Neutral */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[450px] bg-gradient-to-tr from-black/[0.02] dark:from-white/[0.02] to-transparent blur-3xl pointer-events-none -z-10" />
+    <section
+      id="contact"
+      className="relative w-full flex flex-col justify-center py-8 sm:py-12 lg:py-16"
+    >
+      {/* Background CAD Grid */}
+      <div className="absolute inset-0 bg-cad-grid pointer-events-none opacity-50" />
+      <div className="absolute top-1/2 right-1/4 w-[600px] h-[400px] bg-radial from-[#FF5600]/[0.03] dark:from-[#FF5600]/[0.05] to-transparent blur-3xl pointer-events-none -z-10" />
 
-      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-14">
-        
-        <div className="rounded-3xl liquid-card border border-black/[0.07] dark:border-white/[0.09] shadow-xl relative overflow-hidden">
+      <div className="max-w-7xl w-full mx-auto px-5 sm:px-8 lg:px-12 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           
-          {/* Card Section Top Bar */}
-          <div className="px-5 py-3.5 bg-[#F7F7F8]/80 dark:bg-[#121215]/80 backdrop-blur-md border-b border-black/[0.05] dark:border-white/[0.06] flex items-center justify-between">
-            <span className="text-xs font-apple-mono text-[#4A4A4A] dark:text-[#9E9E9E] font-semibold">
-              Get in Touch
-            </span>
-            <div className="flex items-center gap-2 text-xs font-apple-mono text-[#4A4A4A] dark:text-[#9E9E9E]">
-              <span className="text-[#1A1A1A] dark:text-[#E0E0E0] font-medium">Christ Carl Tapat</span>
+          {/* LEFT COLUMN: Section Kicker, Heading, Availability & Copy */}
+          <div className="lg:col-span-6 flex flex-col gap-5">
+            
+            {/* Bold Impact Heading */}
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-anton text-[#1A1A1A] dark:text-[#F4F4F1] leading-[1.02] tracking-tight uppercase">
+              LET&apos;S DISCUSS YOUR <span className="text-[#FF5600]">UPCOMING DRAWINGS</span> & ESTIMATES.
+            </h2>
+
+            <p className="text-xs sm:text-sm text-[#4A4A4A] dark:text-[#9E9E9E] leading-relaxed font-manrope">
+              Available for remote estimating contracts, trade quantity take-offs, and preconstruction BOQ preparation for US and Australian builders.
+            </p>
+
+            {/* Location & Timezone Details */}
+            <div className="grid grid-cols-2 gap-2.5 p-3 rounded-2xl bg-black/[0.02] dark:bg-white/[0.03] border border-black/[0.06] dark:border-white/[0.08]">
+              <div className="flex items-center gap-2 text-xs font-manrope">
+                <MapPin className="w-4 h-4 text-[#FF5600]" />
+                <span className="text-[#1A1A1A] dark:text-[#E0E0E0]">Philippines (Remote)</span>
+              </div>
+              <div className="flex items-center gap-2 text-xs font-manrope">
+                <Clock className="w-4 h-4 text-[#FF5600]" />
+                <span className="text-[#1A1A1A] dark:text-[#E0E0E0]">GMT+8 (US/AU Coverage)</span>
+              </div>
             </div>
+
+            {/* Quick Guarantees */}
+            <div className="flex flex-col gap-1.5 text-xs text-[#4A4A4A] dark:text-[#9E9E9E] font-manrope">
+              <div className="flex items-center gap-2">
+                <Check className="w-3.5 h-3.5 text-[#FF5600]" />
+                <span>24-Hour initial response time for plan reviews</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Check className="w-3.5 h-3.5 text-[#FF5600]" />
+                <span>Fully calibrated PlanSwift & Bluebeam markups provided</span>
+              </div>
+            </div>
+
           </div>
 
-          <div className="p-8 sm:p-12 lg:p-14">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-              
-              {/* Left Content */}
-              <div className="lg:col-span-7 flex flex-col gap-6">
-                
-                <div className="flex items-center gap-2">
-                  <span className="text-xs font-apple-mono text-[#CC8400] uppercase tracking-widest font-semibold">
-                    05 / Contact & Collaboration
-                  </span>
-                  <span className="text-xs font-apple-mono text-[#4A4A4A] dark:text-[#9E9E9E]">·</span>
-                  <span className="text-xs font-apple-mono text-[#FF5600] flex items-center gap-1.5 font-semibold">
-                    <span className="w-2 h-2 rounded-full bg-[#FF5600] animate-pulse" />
-                    Available for Remote Roles
-                  </span>
-                </div>
-
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1A1A1A] dark:text-[#E0E0E0] leading-tight font-apple-display">
-                  Let&apos;s make the next estimate easier to review.
-                </h2>
-
-                <p className="text-sm sm:text-base text-[#4A4A4A] dark:text-[#9E9E9E] leading-relaxed max-w-xl font-apple-text">
-                  I am open to remote construction estimating opportunities with US and Australian general contractors, subcontractors, and preconstruction teams. Let&apos;s discuss your upcoming drawing sets and estimating needs.
-                </p>
-
-                {/* Location & Timezone pills */}
-                <div className="flex flex-wrap items-center gap-3 text-xs font-apple-mono text-[#4A4A4A] dark:text-[#9E9E9E]">
-                  <div className="flex items-center gap-2 px-3 py-1.5 rounded-full liquid-glass-pill border border-black/[0.06] dark:border-white/[0.08]">
-                    <MapPin className="w-3.5 h-3.5 text-[#CC8400]" />
-                    <span>Philippines (Remote)</span>
+          {/* RIGHT COLUMN: Contact Cards & Direct Schedule Container */}
+          <div className="lg:col-span-6 flex flex-col gap-3">
+            
+            {/* Schedule Call Card */}
+            {onOpenBooking && (
+              <div className="p-4 sm:p-5 rounded-2xl bg-black/[0.03] dark:bg-white/[0.04] border border-black/[0.08] dark:border-white/[0.1] flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-sm">
+                <div>
+                  <div className="flex items-center gap-2 text-xs font-bold text-[#1A1A1A] dark:text-[#F4F4F1] font-manrope">
+                    <Calendar className="w-4 h-4 text-[#FF5600]" />
+                    <span>Schedule 30-Min Preconstruction Consultation</span>
                   </div>
-                  <div className="flex items-center gap-2 px-3 py-1.5 rounded-full liquid-glass-pill border border-black/[0.06] dark:border-white/[0.08]">
-                    <Clock className="w-3.5 h-3.5 text-[#CC8400]" />
-                    <span>GMT+8 (Flexible US/AU hours)</span>
-                  </div>
+                  <p className="text-xs text-[#4A4A4A] dark:text-[#9E9E9E] font-manrope mt-1">
+                    Book directly on my calendar to review your drawing set and project scope.
+                  </p>
                 </div>
-
+                <button
+                  type="button"
+                  onClick={onOpenBooking}
+                  className="flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-[#FF5600] text-white text-xs font-manrope font-bold hover:bg-[#E04C00] active:scale-95 transition-all shadow-md cursor-pointer whitespace-nowrap"
+                >
+                  <Calendar className="w-3.5 h-3.5" />
+                  <span>Select Time Slot</span>
+                </button>
               </div>
+            )}
 
-              {/* Right Action Cards */}
-              <div className="lg:col-span-5 flex flex-col gap-3">
-                
-                {/* Cal.com In-App Booking Trigger Card */}
-                {onOpenBooking ? (
+            {/* Email Contact Card */}
+            <div className="p-4 sm:p-5 rounded-2xl bg-black/[0.02] dark:bg-white/[0.03] border border-black/[0.06] dark:border-white/[0.08] flex flex-col gap-2.5">
+              <span className="text-[10px] font-space text-[#FF5600] uppercase font-bold tracking-wider">
+                Direct Email Inquiries
+              </span>
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
+                <div className="flex items-center gap-2.5">
+                  <div className="p-2 rounded-xl bg-black/[0.04] dark:bg-white/[0.06] text-[#FF5600]">
+                    <Mail className="w-4 h-4" />
+                  </div>
+                  <span className="text-xs sm:text-sm font-bold text-[#1A1A1A] dark:text-[#F4F4F1] font-manrope select-all">
+                    {email}
+                  </span>
+                </div>
+
+                <div className="flex items-center gap-2">
                   <button
                     type="button"
-                    onClick={onOpenBooking}
-                    className="w-full text-left p-4 sm:p-5 rounded-2xl liquid-card border border-black/[0.06] dark:border-white/[0.08] hover:border-[#FF5600]/50 transition-all flex items-center justify-between group cursor-pointer shadow-xs active:scale-98"
+                    onClick={handleCopyEmail}
+                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-black/[0.04] dark:bg-white/[0.06] border border-black/[0.08] dark:border-white/[0.1] text-xs font-manrope font-semibold text-[#1A1A1A] dark:text-[#E0E0E0] hover:border-[#FF5600]/50 active:scale-95 transition-all cursor-pointer"
                   >
-                    <div className="flex items-center gap-3.5">
-                      <div className="p-2.5 sm:p-3 rounded-xl bg-[#FF5600]/10 text-[#FF5600] border border-[#FF5600]/30 shadow-2xs">
-                        <Calendar className="w-5 h-5" />
-                      </div>
-                      <div className="flex flex-col">
-                        <span className="text-sm font-bold text-[#1A1A1A] dark:text-[#E0E0E0] group-hover:text-[#FF5600] transition-colors font-apple-display">
-                          Get in Touch · 30-Min Call
-                        </span>
-                        <span className="text-xs font-apple-mono text-[#4A4A4A] dark:text-[#9E9E9E]">
-                          Schedule via Cal.com (Google Meet)
-                        </span>
-                      </div>
-                    </div>
-                    <ArrowUpRight className="w-4 h-4 text-[#4A4A4A] dark:text-[#9E9E9E] group-hover:text-[#FF5600] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                    {copied ? (
+                      <>
+                        <Check className="w-3.5 h-3.5 text-emerald-500" />
+                        <span>Copied</span>
+                      </>
+                    ) : (
+                      <>
+                        <Copy className="w-3.5 h-3.5 text-[#4A4A4A] dark:text-[#9E9E9E]" />
+                        <span>Copy</span>
+                      </>
+                    )}
                   </button>
-                ) : (
+
                   <a
-                    href="https://cal.com/tapat-christcarl/30min"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-4 sm:p-5 rounded-2xl liquid-card border border-black/[0.06] dark:border-white/[0.08] hover:border-[#FF5600]/50 transition-all flex items-center justify-between group shadow-xs active:scale-98"
+                    href={`mailto:${email}`}
+                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#FF5600] text-white text-xs font-manrope font-bold hover:bg-[#E04C00] active:scale-95 transition-all shadow-xs"
                   >
-                    <div className="flex items-center gap-3.5">
-                      <div className="p-2.5 sm:p-3 rounded-xl bg-[#FF5600]/10 text-[#FF5600] border border-[#FF5600]/30 shadow-2xs">
-                        <Calendar className="w-5 h-5" />
-                      </div>
-                      <div className="flex flex-col">
-                        <span className="text-sm font-bold text-[#1A1A1A] dark:text-[#E0E0E0] group-hover:text-[#FF5600] transition-colors font-apple-display">
-                          Get in Touch · 30-Min Call
-                        </span>
-                        <span className="text-xs font-apple-mono text-[#4A4A4A] dark:text-[#9E9E9E]">
-                          Schedule via Cal.com
-                        </span>
-                      </div>
-                    </div>
-                    <ArrowUpRight className="w-4 h-4 text-[#4A4A4A] dark:text-[#9E9E9E] group-hover:text-[#FF5600] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
-                  </a>
-                )}
-
-                {/* Direct Email Card with Compact Graphic Icon Buttons */}
-                <div className="p-4 sm:p-5 rounded-2xl liquid-card border border-black/[0.06] dark:border-white/[0.08] flex items-center justify-between gap-3 shadow-xs">
-                  <div className="flex items-center gap-3.5 min-w-0">
-                    <div className="p-2.5 sm:p-3 rounded-xl bg-black/[0.03] dark:bg-white/[0.05] text-[#CC8400] border border-black/[0.05] dark:border-white/[0.07] flex-shrink-0 shadow-2xs">
-                      <Mail className="w-5 h-5" />
-                    </div>
-                    <div className="flex flex-col min-w-0">
-                      <span className="text-[11px] font-apple-mono text-[#4A4A4A] dark:text-[#9E9E9E] font-semibold">
-                        Direct Email
-                      </span>
-                      <a
-                        href={`mailto:${email}`}
-                        className="text-xs sm:text-sm font-semibold text-[#1A1A1A] dark:text-[#E0E0E0] hover:text-[#FF5600] transition-colors truncate font-apple-text"
-                        title={email}
-                      >
-                        {email}
-                      </a>
-                    </div>
-                  </div>
-
-                  {/* Graphic Icon Action Buttons */}
-                  <div className="flex items-center gap-1.5 flex-shrink-0">
-                    <button
-                      type="button"
-                      onClick={handleCopyEmail}
-                      className="w-8 h-8 rounded-xl liquid-glass border border-black/[0.08] dark:border-white/[0.1] flex items-center justify-center text-[#4A4A4A] dark:text-[#9E9E9E] hover:text-[#1A1A1A] dark:hover:text-[#E0E0E0] hover:border-[#CC8400]/50 transition-all cursor-pointer active:scale-90 shadow-2xs"
-                      title={copied ? 'Copied to clipboard' : 'Copy email address'}
-                      aria-label="Copy email address"
-                    >
-                      {copied ? (
-                        <Check className="w-4 h-4 text-emerald-500" />
-                      ) : (
-                        <Copy className="w-3.5 h-3.5" />
-                      )}
-                    </button>
-                    <a
-                      href={`mailto:${email}`}
-                      className="w-8 h-8 rounded-xl bg-[#FF5600] hover:bg-[#E04D00] text-white transition-all flex items-center justify-center active:scale-90 shadow-[0_2px_8px_rgba(255,86,0,0.3)]"
-                      title="Send email"
-                      aria-label="Send email"
-                    >
-                      <Send className="w-3.5 h-3.5" />
-                    </a>
-                  </div>
-                </div>
-
-                {/* 2-Column Compact Actions: Resume Download & LinkedIn */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  {/* PDF Resume Download Card with Graphic Icon */}
-                  <a
-                    href="/documents/Resume-Construction-Estimator-TAPAT.pdf"
-                    download
-                    className="p-3.5 rounded-2xl liquid-card border border-black/[0.06] dark:border-white/[0.08] hover:border-[#FF5600]/40 transition-all flex items-center justify-between group shadow-xs active:scale-98"
-                    title="Download Resume (PDF)"
-                  >
-                    <div className="flex items-center gap-2.5 min-w-0">
-                      <div className="p-2 rounded-xl bg-black/[0.03] dark:bg-white/[0.05] text-[#FF5600] border border-black/[0.05] dark:border-white/[0.07] flex-shrink-0 shadow-2xs">
-                        <FileText className="w-4 h-4" />
-                      </div>
-                      <div className="flex flex-col min-w-0">
-                        <span className="text-xs font-semibold text-[#1A1A1A] dark:text-[#E0E0E0] group-hover:text-[#FF5600] transition-colors truncate font-apple-text">
-                          Resume
-                        </span>
-                        <span className="text-[10px] font-apple-mono text-[#4A4A4A] dark:text-[#9E9E9E]">
-                          PDF · 128 KB
-                        </span>
-                      </div>
-                    </div>
-                    <div className="w-8 h-8 rounded-xl liquid-glass border border-black/[0.06] dark:border-white/[0.08] flex items-center justify-center text-[#4A4A4A] dark:text-[#9E9E9E] group-hover:text-[#FF5600] group-hover:border-[#FF5600]/40 transition-colors flex-shrink-0">
-                      <Download className="w-4 h-4" />
-                    </div>
-                  </a>
-
-                  {/* LinkedIn Profile Card */}
-                  <a
-                    href="https://www.linkedin.com/in/christ-carl-tapat-23a53241b/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-3.5 rounded-2xl liquid-card border border-black/[0.06] dark:border-white/[0.08] hover:border-[#FF5600]/40 transition-all flex items-center justify-between group shadow-xs active:scale-98"
-                    title="Connect on LinkedIn"
-                  >
-                    <div className="flex items-center gap-2.5 min-w-0">
-                      <div className="p-2 rounded-xl bg-black/[0.03] dark:bg-white/[0.05] text-[#0A66C2] border border-black/[0.05] dark:border-white/[0.07] flex-shrink-0 shadow-2xs">
-                        <Linkedin className="w-4 h-4" />
-                      </div>
-                      <div className="flex flex-col min-w-0">
-                        <span className="text-xs font-semibold text-[#1A1A1A] dark:text-[#E0E0E0] group-hover:text-[#FF5600] transition-colors truncate font-apple-text">
-                          LinkedIn
-                        </span>
-                        <span className="text-[10px] font-apple-mono text-[#4A4A4A] dark:text-[#9E9E9E]">
-                          Profile
-                        </span>
-                      </div>
-                    </div>
-                    <div className="w-8 h-8 rounded-xl liquid-glass border border-black/[0.06] dark:border-white/[0.08] flex items-center justify-center text-[#4A4A4A] dark:text-[#9E9E9E] group-hover:text-[#FF5600] group-hover:border-[#FF5600]/40 transition-colors flex-shrink-0">
-                      <ArrowUpRight className="w-4 h-4" />
-                    </div>
+                    <Send className="w-3 h-3" />
+                    <span>Send Email</span>
                   </a>
                 </div>
-
               </div>
-
             </div>
+
+            {/* LinkedIn & Resume Cards in 2 columns */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+              <a
+                href="https://www.linkedin.com/in/christ-carl-tapat-23a53241b/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3.5 rounded-2xl bg-black/[0.02] dark:bg-white/[0.03] border border-black/[0.06] dark:border-white/[0.08] hover:border-[#FF5600]/40 flex items-center justify-between gap-2 group transition-all"
+              >
+                <div className="flex items-center gap-2.5">
+                  <div className="p-2 rounded-xl bg-black/[0.04] dark:bg-white/[0.06] text-[#FF5600] group-hover:bg-[#FF5600]/10 transition-colors">
+                    <Linkedin className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <div className="text-xs font-bold text-[#1A1A1A] dark:text-[#F4F4F1] font-manrope">
+                      LinkedIn Profile
+                    </div>
+                    <div className="text-[10px] text-[#4A4A4A] dark:text-[#9E9E9E] font-manrope">
+                      Connect professionally
+                    </div>
+                  </div>
+                </div>
+                <ArrowUpRight className="w-4 h-4 text-[#6B7280] group-hover:text-[#FF5600] group-hover:translate-x-0.5 transition-all" />
+              </a>
+
+              <a
+                href="/documents/Resume-Construction-Estimator-TAPAT.pdf"
+                download
+                className="p-3.5 rounded-2xl bg-black/[0.02] dark:bg-white/[0.03] border border-black/[0.06] dark:border-white/[0.08] hover:border-[#FF5600]/40 flex items-center justify-between gap-2 group transition-all"
+              >
+                <div className="flex items-center gap-2.5">
+                  <div className="p-2 rounded-xl bg-black/[0.04] dark:bg-white/[0.06] text-[#FF5600] group-hover:bg-[#FF5600]/10 transition-colors">
+                    <FileText className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <div className="text-xs font-bold text-[#1A1A1A] dark:text-[#F4F4F1] font-manrope">
+                      Download Resume
+                    </div>
+                    <div className="text-[10px] text-[#4A4A4A] dark:text-[#9E9E9E] font-manrope">
+                      PDF (Updated 2026)
+                    </div>
+                  </div>
+                </div>
+                <Download className="w-4 h-4 text-[#6B7280] group-hover:text-[#FF5600] group-hover:translate-y-0.5 transition-all" />
+              </a>
+            </div>
+
           </div>
 
         </div>
-
       </div>
     </section>
   );
 };
-
