@@ -510,16 +510,16 @@ export const SidebarNav: React.FC<SidebarNavProps> = ({
                 aria-label={viewMode === 'panel' ? 'Switch to scroll view' : 'Switch to slide view'}
                 title={viewMode === 'panel' ? 'Switch to scroll view' : 'Switch to slide view'}
                 style={{
-                  width: '44px',
+                  width: '40px',
                   height: '40px',
                   borderRadius: '10px',
                   display: 'inline-flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  color: '#FFFFFF',
-                  background: ACCENT,
-                  border: 'none',
-                  boxShadow: '0 2px 8px rgba(255,86,0,0.35)',
+                  background: 'var(--card)',
+                  color: 'var(--body)',
+                  border: '1px solid var(--card-border)',
+                  boxShadow: '0 1px 3px rgba(0,0,0,0.05)',
                   cursor: 'pointer',
                   flexShrink: 0,
                 }}

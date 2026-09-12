@@ -408,7 +408,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onNavigateSection })
                 </span>
               <div style={{ display: 'flex', flexDirection: 'column' }}>
                 <span style={{ fontSize: '15px', fontWeight: 700, color: 'var(--ink)' }}>My Internet Speed</span>
-                <span style={{ fontSize: '11px', color: 'var(--faint)' }}>Tested from my workstation · September 2026</span>
+                <span style={{ fontSize: '11px', color: 'var(--faint)' }}>PLDT Home Fiber · Tested September 2026</span>
               </div>
             </div>
             <div
@@ -417,10 +417,10 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onNavigateSection })
               <Gauge size={26} color="#FF5600" style={{ flexShrink: 0 }} />
               <span style={{ display: 'flex', flexDirection: 'column' }}>
                 <span style={{ fontSize: '26px', fontWeight: 700, color: 'var(--ink)', lineHeight: 1, fontVariantNumeric: 'tabular-nums' }}>
-                  18.9 Mbps
+                  202.5 Mbps
                 </span>
                 <span style={{ fontSize: '11px', color: 'var(--faint)', marginTop: '4px' }}>
-                  Download · 41 ms ping · Stable for screen-shares & file sync
+                  Download · 201.4 Mbps upload · 5 ms ping · Cagayan de Oro server
                 </span>
               </span>
             </div>

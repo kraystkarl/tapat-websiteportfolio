@@ -20,12 +20,12 @@ export const Footer: React.FC<FooterProps> = ({
   };
 
   const navLinks = [
-    { label: 'Intro', index: 0 },
+    { label: 'Home', index: 0 },
+    { label: 'Portfolio', index: 4 },
+    { label: 'Services', index: 3 },
     { label: 'About', index: 1 },
-    { label: 'Experience', index: 2 },
-    { label: 'Methodology', index: 3 },
-    { label: 'Proof of Work', index: 4 },
-    { label: 'Contact', index: 5 },
+    { label: 'Resume', index: 2 },
+    { label: 'Contacts', index: 5 },
   ];
 
   return (
