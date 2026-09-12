@@ -12,8 +12,15 @@ import { Footer } from './components/Footer';
 import { ProofModal } from './components/ProofModal';
 import { BookingModal } from './components/BookingModal';
 import { SideRailNav } from './components/SideRailNav';
+import { Preloader } from './components/Preloader';
 
 export default function App() {
+  /* Kinetic preloader experiment — plays on every load, preview only. */
+  const [showPreloader, setShowPreloader] = useState(true);
+  const handlePreloaderDone = useCallback(() => {
+    setShowPreloader(false);
+  }, []);
+
   const [activeSectionIndex, setActiveSectionIndex] = useState(0);
   const [viewMode, setViewMode] = useState<'panel' | 'scroll'>('panel');
   const [slideDirection, setSlideDirection] = useState<number>(1); // 1 = forward, -1 = backward
@@ -243,6 +250,7 @@ export default function App() {
 
   return (
     <ThemeProvider>
+      {showPreloader && <Preloader onDone={handlePreloaderDone} />}
       <div className="min-h-screen bg-[#F5F4EF] dark:bg-[#0C0C0F] text-[#1A1A1A] dark:text-[#E0E0E0] relative selection:bg-[#FF5600]/20 selection:text-[#FF5600] font-manrope antialiased transition-colors duration-300 overflow-x-hidden">
         
         {/* Subtle Ambient Industrial Lighting */}
