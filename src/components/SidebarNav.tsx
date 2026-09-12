@@ -59,6 +59,12 @@ export const SidebarNav: React.FC<SidebarNavProps> = ({
   const [inboxTab, setInboxTab] = useState<'pending' | 'published'>('pending');
   const [pending, setPending] = useState<InboxItem[]>([]);
   const [published, setPublished] = useState<InboxItem[]>([]);
+  const [ghToken, setGhToken] = useState('');
+  const [syncMsg, setSyncMsg] = useState('');
+  const [syncing, setSyncing] = useState(false);
+  const [nName, setNName] = useState('');
+  const [nComment, setNComment] = useState('');
+  const [nStars, setNStars] = useState(5);
 
   const readInbox = (key: string): InboxItem[] => {
     try {
@@ -85,11 +91,81 @@ export const SidebarNav: React.FC<SidebarNavProps> = ({
   const openAdmin = () => {
     setPending(readInbox('pendingTestimonials'));
     setPublished(readInbox('approvedTestimonials'));
+    try {
+      setGhToken(localStorage.getItem('owner-gh-token') || '');
+    } catch {
+      setGhToken('');
+    }
+    setSyncMsg('');
+    setNName('');
+    setNComment('');
+    setNStars(5);
     setAuthed(false);
     setPassword('');
     setPwError('');
     setInboxTab('pending');
     setAdminOpen(true);
+  };
+
+  /* Push the published list to the public store (commits testimonials.json,
+     the site rebuilds and every visitor sees it). Token lives only here. */
+  const pushLive = async () => {
+    const token = ghToken.trim();
+    if (!token) {
+      setSyncMsg('Paste your GitHub token below first — it never leaves this browser.');
+      return;
+    }
+    setSyncing(true);
+    setSyncMsg('Publishing…');
+    try {
+      const url =
+        'https://api.github.com/repos/kraystkarl/tapat-websiteportfolio/contents/public/testimonials.json';
+      const headers = {
+        Authorization: `Bearer ${token}`,
+        Accept: 'application/vnd.github+json',
+        'Content-Type': 'application/json',
+      };
+      const current = await fetch(url, { headers });
+      if (!current.ok) throw new Error('read failed');
+      const data = await current.json();
+      const content = btoa(unescape(encodeURIComponent(JSON.stringify(published, null, 2) + '\n')));
+      const updated = await fetch(url, {
+        method: 'PUT',
+        headers,
+        body: JSON.stringify({
+          message: 'Publish testimonials',
+          content,
+          sha: data.sha,
+        }),
+      });
+      if (!updated.ok) throw new Error('write failed');
+      try {
+        localStorage.setItem('owner-gh-token', token);
+      } catch {
+        /* storage unavailable */
+      }
+      setSyncMsg('Live! Every visitor sees it after the ~2 min rebuild.');
+    } catch {
+      setSyncMsg('Publish failed — check the token and connection.');
+    }
+    setSyncing(false);
+  };
+
+  const addPublished = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!nComment.trim()) return;
+    saveLists(pending, [
+      ...published,
+      {
+        name: nName.trim() || 'Anonymous',
+        comment: nComment.trim(),
+        stars: nStars,
+        date: new Date().toISOString(),
+      },
+    ]);
+    setNName('');
+    setNComment('');
+    setNStars(5);
   };
 
   const unlock = (e: React.FormEvent) => {
@@ -890,6 +966,76 @@ export const SidebarNav: React.FC<SidebarNavProps> = ({
                     </button>
                   ))}
                 </div>
+
+                {/* Publish publicly: token stays in this browser, commit rebuilds the site */}
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', background: 'var(--pill)', border: '1px solid var(--card-border)', borderRadius: '12px', padding: '12px' }}>
+                  <input
+                    type="password"
+                    value={ghToken}
+                    onChange={(e) => setGhToken(e.target.value)}
+                    placeholder="GitHub token (stored only in this browser)"
+                    aria-label="GitHub token"
+                    style={{ fontSize: '13px', padding: '9px 12px', borderRadius: '10px', border: '1px solid var(--card-border)', outline: 'none', color: 'var(--ink)', background: 'var(--card)' }}
+                  />
+                  <button
+                    type="button"
+                    onClick={pushLive}
+                    disabled={syncing}
+                    style={{ background: 'var(--ink)', color: 'var(--canvas)', borderRadius: '9999px', padding: '9px 18px', fontSize: '13px', fontWeight: 700, border: 'none', cursor: syncing ? 'wait' : 'pointer', opacity: syncing ? 0.7 : 1 }}
+                  >
+                    {syncing ? 'Publishing…' : `Push ${published.length} published live`}
+                  </button>
+                  {syncMsg && (
+                    <span style={{ fontSize: '12px', color: 'var(--muted)', lineHeight: 1.5 }}>{syncMsg}</span>
+                  )}
+                </div>
+
+                {inboxTab === 'pending' && (
+                  <>
+                    <p style={{ fontSize: '12px', color: 'var(--faint)', margin: 0, lineHeight: 1.55 }}>
+                      New guest reviews arrive in your email inbox — add the ones you want below.
+                    </p>
+                    <form onSubmit={addPublished} style={{ display: 'flex', flexDirection: 'column', gap: '8px', border: '1px dashed var(--card-border)', borderRadius: '12px', padding: '12px' }}>
+                      <input
+                        type="text"
+                        value={nName}
+                        onChange={(e) => setNName(e.target.value)}
+                        placeholder="Guest name"
+                        aria-label="Guest name"
+                        style={{ fontSize: '13px', padding: '9px 12px', borderRadius: '10px', border: '1px solid var(--card-border)', outline: 'none', color: 'var(--ink)', background: 'var(--card)' }}
+                      />
+                      <textarea
+                        value={nComment}
+                        onChange={(e) => setNComment(e.target.value)}
+                        placeholder="Guest comment"
+                        aria-label="Guest comment"
+                        rows={2}
+                        style={{ fontSize: '13px', padding: '9px 12px', borderRadius: '10px', border: '1px solid var(--card-border)', outline: 'none', resize: 'vertical', color: 'var(--ink)', background: 'var(--card)', fontFamily: 'inherit' }}
+                      />
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                        <div style={{ display: 'flex', gap: '4px' }}>
+                          {[1, 2, 3, 4, 5].map((s) => (
+                            <button
+                              key={s}
+                              type="button"
+                              onClick={() => setNStars(s)}
+                              aria-label={`${s} stars`}
+                              style={{ padding: '2px', background: 'none', border: 'none', cursor: 'pointer' }}
+                            >
+                              <Star size={18} color={nStars >= s ? ACCENT : '#CBD5E1'} weight={nStars >= s ? 'fill' : 'regular'} />
+                            </button>
+                          ))}
+                        </div>
+                        <button
+                          type="submit"
+                          style={{ marginLeft: 'auto', fontSize: '12px', fontWeight: 700, color: '#FFFFFF', background: ACCENT, border: 'none', borderRadius: '9999px', padding: '8px 16px', cursor: 'pointer' }}
+                        >
+                          Add to published
+                        </button>
+                      </div>
+                    </form>
+                  </>
+                )}
 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
                   {(inboxTab === 'pending' ? pending : published).length === 0 && (

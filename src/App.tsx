@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ThemeProvider } from './context/ThemeContext';
+import { ThemeProvider, getDeviceClass } from './context/ThemeContext';
 import { SidebarNav } from './components/SidebarNav';
 import { HeroSection } from './components/HeroSection';
 import { AboutSection } from './components/AboutSection';
@@ -22,7 +22,10 @@ export default function App() {
   }, []);
 
   const [activeSectionIndex, setActiveSectionIndex] = useState(0);
-  const [viewMode, setViewMode] = useState<'panel' | 'scroll'>('panel');
+  /* Fresh defaults per device: mobile starts in scroll view, otherwise slide. */
+  const [viewMode, setViewMode] = useState<'panel' | 'scroll'>(() =>
+    getDeviceClass() === 'mobile' ? 'scroll' : 'panel',
+  );
   const [slideDirection, setSlideDirection] = useState<number>(1); // 1 = forward, -1 = backward
   const isScrollingRef = useRef(false);
 

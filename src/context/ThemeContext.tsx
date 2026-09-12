@@ -2,6 +2,19 @@ import React, { createContext, useContext, useEffect, useState } from 'react';
 
 type Theme = 'dark' | 'light';
 
+export type DeviceClass = 'mobile' | 'tablet' | 'desktop';
+
+/* Viewport buckets aligned with the layout breakpoints (<768 phone,
+   768–1023 tablet, 1024+ desktop sidebar). */
+export const getDeviceClass = (): DeviceClass => {
+  if (typeof window === 'undefined' || typeof window.matchMedia !== 'function') {
+    return 'desktop';
+  }
+  if (window.matchMedia('(max-width: 767px)').matches) return 'mobile';
+  if (window.matchMedia('(max-width: 1023px)').matches) return 'tablet';
+  return 'desktop';
+};
+
 interface ThemeContextType {
   theme: Theme;
   toggleTheme: () => void;
@@ -20,6 +33,10 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       const stored = localStorage.getItem('tapat-portfolio-theme') as Theme | null;
       if (stored === 'dark' || stored === 'light') {
         return stored;
+      }
+      /* Fresh defaults per device: tablet starts dark, otherwise light. */
+      if (getDeviceClass() === 'tablet') {
+        return 'dark';
       }
     }
     return 'light';

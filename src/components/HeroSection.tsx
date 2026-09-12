@@ -147,7 +147,37 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   const [fbStars, setFbStars] = useState(5);
   const [fbHover, setFbHover] = useState(0);
   const [fbSent, setFbSent] = useState(false);
+  const [fbSending, setFbSending] = useState(false);
+  const [fbError, setFbError] = useState('');
   const [approved, setApproved] = useState<Testimonial[]>([]);
+
+  /* Merge the public store with this browser's local approvals (deduped). */
+  const mergeApproved = (a: Testimonial[], b: Testimonial[]) => {
+    const seen = new Set<string>();
+    return [...a, ...b].filter((t) => {
+      const key = `${t.name}|${t.comment}|${t.stars}`;
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
+  };
+
+  const loadApproved = async () => {
+    const local = readTestimonials('approvedTestimonials');
+    try {
+      const res = await fetch('/testimonials.json', { cache: 'no-store' });
+      if (res.ok) {
+        const remote = await res.json();
+        if (Array.isArray(remote)) {
+          setApproved(mergeApproved(remote, local));
+          return;
+        }
+      }
+    } catch {
+      /* offline or missing file — fall back to local */
+    }
+    setApproved(local);
+  };
 
   /* Visitor counter (local preview counter) + load published testimonials */
   useEffect(() => {
@@ -159,14 +189,18 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
     } catch {
       setVisits(1);
     }
-    setApproved(readTestimonials('approvedTestimonials'));
+    loadApproved();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   /* Refresh published reviews when the owner approves them in the inbox. */
   useEffect(() => {
-    const reload = () => setApproved(readTestimonials('approvedTestimonials'));
+    const reload = () => {
+      loadApproved();
+    };
     window.addEventListener('testimonials-updated', reload);
     return () => window.removeEventListener('testimonials-updated', reload);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const go = (index: number) => {
@@ -178,27 +212,51 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
     else go(NAV.contacts);
   };
 
-  const submitFeedback = (e: React.FormEvent) => {
+  /* Visitor review → emailed to the owner for approval (no backend needed).
+     A local copy is kept so the sender sees it as awaiting review. */
+  const submitFeedback = async (e: React.FormEvent) => {
     e.preventDefault();
+    setFbSending(true);
+    setFbError('');
+    const entry = {
+      name: fbName || 'Anonymous',
+      comment: fbComment,
+      stars: fbStars,
+      date: new Date().toISOString(),
+    };
     try {
       const pending = readTestimonials('pendingTestimonials');
-      pending.push({
-        name: fbName || 'Anonymous',
-        comment: fbComment,
-        stars: fbStars,
-        date: new Date().toISOString(),
-      });
+      pending.push(entry);
       localStorage.setItem('pendingTestimonials', JSON.stringify(pending));
     } catch {
       /* storage unavailable */
     }
+    try {
+      const res = await fetch('https://formsubmit.co/ajax/engr.christcarl@gmail.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          name: entry.name,
+          _subject: `New portfolio review from ${entry.name} (${entry.stars}/5)`,
+          _template: 'table',
+          rating: `${entry.stars} / 5`,
+          comment: entry.comment,
+          date: entry.date,
+        }),
+      });
+      if (!res.ok) throw new Error('delivery failed');
+    } catch {
+      setFbError('Could not reach the owner inbox — your review was saved on this device only.');
+    }
     window.dispatchEvent(new Event('testimonials-updated'));
+    setFbSending(false);
     setFbSent(true);
   };
 
   const closeFeedback = () => {
     setFeedbackOpen(false);
     setFbSent(false);
+    setFbError('');
   };
 
   return (
@@ -778,11 +836,16 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             {fbSent ? (
               <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', alignItems: 'flex-start' }}>
                 <p style={{ fontSize: '14px', color: 'var(--ink)', margin: 0, lineHeight: 1.6 }}>
-                  Thanks{fbName ? `, ${fbName}` : ''}! Your review was received.
+                  Thanks{fbName ? `, ${fbName}` : ''}! Your review was sent to the owner.
                 </p>
                 <p style={{ fontSize: '13px', color: 'var(--muted)', margin: 0, lineHeight: 1.6 }}>
-                  It is now awaiting approval and will appear in Testimonials once published.
+                  It will appear in Testimonials here — publicly, for every visitor — once published.
                 </p>
+                {fbError && (
+                  <p style={{ fontSize: '13px', color: '#DC2626', margin: 0, lineHeight: 1.6 }}>
+                    {fbError}
+                  </p>
+                )}
                 <button
                   type="button"
                   onClick={closeFeedback}
@@ -839,14 +902,15 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 </label>
                 <button
                   type="submit"
+                  disabled={fbSending}
                   className="hero-cta"
-                  style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px', background: 'var(--ink)', color: 'var(--canvas)', borderRadius: '9999px', padding: '10px 20px', fontSize: '14px', fontWeight: 600, border: 'none', cursor: 'pointer' }}
+                  style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px', background: 'var(--ink)', color: 'var(--canvas)', borderRadius: '9999px', padding: '10px 20px', fontSize: '14px', fontWeight: 600, border: 'none', cursor: fbSending ? 'wait' : 'pointer', opacity: fbSending ? 0.7 : 1 }}
                 >
                   <Send size={15} />
-                  <span>Submit for review</span>
+                  <span>{fbSending ? 'Sending…' : 'Submit for review'}</span>
                 </button>
                 <p style={{ fontSize: '12px', color: 'var(--faint)', margin: 0, lineHeight: 1.55 }}>
-                  Goes straight to the owner's review inbox. Published here only after approval.
+                  Goes straight to the owner's email inbox. Published publicly only after approval.
                 </p>
               </form>
             )}
