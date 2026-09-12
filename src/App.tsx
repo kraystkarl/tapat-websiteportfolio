@@ -36,6 +36,8 @@ export default function App() {
   } | null>(null);
 
   const [isBookingOpen, setIsBookingOpen] = useState(false);
+  /* Skip the very first hash sync so a deep link survives (re)mounts. */
+  const hashSyncedRef = useRef(false);
 
   const sectionIds = [
     'intro',
@@ -68,8 +70,13 @@ export default function App() {
     }
   }, []);
 
-  // Update hash when active section changes
+  // Update hash when active section changes (skips the initial mount
+  // so an incoming deep link is never overwritten before it is read)
   useEffect(() => {
+    if (!hashSyncedRef.current) {
+      hashSyncedRef.current = true;
+      return;
+    }
     const currentId = sectionIds[activeSectionIndex];
     if (window.location.hash !== `#${currentId}`) {
       window.history.replaceState(null, '', `#${currentId}`);

@@ -279,10 +279,12 @@ export const ProofSection: React.FC<ProofSectionProps> = ({
           .hero-cta-proof:hover { transform: scale(1.03); }
           .hero-cta-proof:active { transform: scale(0.97); }
           .dark .hero-cta-proof, [data-theme="dark"] .hero-cta-proof { border: 1px solid rgba(255,255,255,0.18); }
-          @media (max-width: 1023px) { .gateway-grid { grid-template-columns: repeat(2, 1fr) !important; } }
+          .gateway-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+          .gateway-featured { display: grid; grid-template-columns: 1.1fr 1fr; }
+          @media (max-width: 1023px) { .gateway-grid { grid-template-columns: repeat(2, 1fr); } }
           @media (max-width: 639px) {
-            .gateway-grid { grid-template-columns: 1fr !important; }
-            .gateway-featured { grid-template-columns: 1fr !important; }
+            .gateway-grid { grid-template-columns: 1fr; }
+            .gateway-featured { grid-template-columns: 1fr; }
           }
         `}</style>
 
@@ -378,7 +380,6 @@ export const ProofSection: React.FC<ProofSectionProps> = ({
                   style={{
                     borderRadius: '20px', padding: 0, overflow: 'hidden',
                     cursor: 'pointer', textAlign: 'left', width: '100%',
-                    display: 'grid', gridTemplateColumns: '1.1fr 1fr',
                   }}
                   aria-label={`Open ${file.name} case file`}
                 >
@@ -447,7 +448,7 @@ export const ProofSection: React.FC<ProofSectionProps> = ({
               ))}
 
               {/* Future project slots (text only — no invented media) */}
-              <div className="gateway-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px' }}>
+              <div className="gateway-grid">
                 {['Slot 02', 'Slot 03'].map((slot) => (
                   <div
                     key={slot}

@@ -186,8 +186,9 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onNavigateSection })
         .abt-hobby-grid > div { flex: 1 1 150px; max-width: 210px; }
         .abt-split { display: grid; grid-template-columns: 5fr 7fr; gap: 32px; align-items: start; }
         .abt-duo { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .abt-trio { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
         @media (max-width: 1023px) { .abt-split { grid-template-columns: 1fr; } }
-        @media (max-width: 639px) { .abt-duo { grid-template-columns: 1fr; } }
+        @media (max-width: 639px) { .abt-duo { grid-template-columns: 1fr; } .abt-trio { grid-template-columns: 1fr; } }
       `}</style>
 
       {/* Background Architectural Subtle CAD Grid */}
@@ -276,7 +277,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onNavigateSection })
             <span style={{ fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.14em', color: 'var(--faint)', fontWeight: 700 }}>
               AT A GLANCE
             </span>
-            <div className="abt-duo" style={{ gridTemplateColumns: 'repeat(3, 1fr)' }}>
+            <div className="abt-trio">
               {glanceStats.map((stat) => {
                 const Icon = stat.icon;
                 return (

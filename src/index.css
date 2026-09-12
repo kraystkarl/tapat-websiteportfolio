@@ -59,8 +59,7 @@
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: local('SF Pro Text Medium'), local('SFProText-Medium'),
-       url('https://cdn.jsdelivr.net/npm/sf-pro@1.0.3/font/woff2/sf-pro-text_medium.woff2') format('woff2');
+  src: local('SF Pro Text Medium'), local('SFProText-Medium');
 }
 @font-face {
   font-family: 'SF Pro Text';
@@ -75,8 +74,7 @@
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: local('SF Pro Text Bold'), local('SFProText-Bold'),
-       url('https://cdn.jsdelivr.net/npm/sf-pro@1.0.3/font/woff2/sf-pro-text_bold.woff2') format('woff2');
+  src: local('SF Pro Text Bold'), local('SFProText-Bold');
 }
 
 /* SF Mono (Role 3: Technical, Metadata, Codes, Dimensions, Tabular Figures) */

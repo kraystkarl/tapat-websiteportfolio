@@ -84,13 +84,14 @@ const toolGroups: { category: string; tools: { name: string; logo: string }[] }[
 /* Portfolio glance — one live project, room for future postings (no invented media). */
 const showcaseProjects = [
   {
+    id: 'au-timber-frame',
     name: 'AU Timber Frame',
     focus: 'Architectural Estimating',
     tag: 'Australian Project · Live',
     live: true,
   },
-  { name: 'Next project', focus: 'To be posted soon', tag: 'Upcoming', live: false },
-  { name: 'Next project', focus: 'To be posted soon', tag: 'Upcoming', live: false },
+  { id: 'soon-2', name: 'Next project', focus: 'To be posted soon', tag: 'Upcoming', live: false },
+  { id: 'soon-3', name: 'Next project', focus: 'To be posted soon', tag: 'Upcoming', live: false },
 ];
 
 /* Roles open for — as specified. */
@@ -228,14 +229,19 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         .bento-pill { transition: background 0.2s ease; }
         .bento-pill:hover { background: var(--pill); }
         .contact-row { transition: background 0.2s ease; }
+        .marquee-label { width: 20%; min-width: 150px; display: flex; align-items: center; flex-shrink: 0; }
         .contact-row:hover { background: var(--pill); }
-        @media (max-width: 1023px) { .bento-grid { grid-template-columns: repeat(2, 1fr) !important; } }
+        .bento-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+        .bento-span-2 { grid-column: span 2; }
+        .bento-testimonials { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+        .bento-feature-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; border-radius: 12px; overflow: hidden; border: 1px solid var(--card-border); }
+        @media (max-width: 1023px) { .bento-grid { grid-template-columns: repeat(2, 1fr); } }
         @media (max-width: 639px) {
-          .bento-grid { grid-template-columns: 1fr !important; }
-          .bento-span-2 { grid-column: span 1 !important; }
-          .bento-testimonials { grid-template-columns: 1fr !important; }
-          .bento-feature-inner { grid-template-columns: 1fr !important; }
-          .marquee-label { min-width: 118px !important; }
+          .bento-grid { grid-template-columns: 1fr; }
+          .bento-span-2 { grid-column: span 1; }
+          .bento-testimonials { grid-template-columns: 1fr; }
+          .bento-feature-inner { grid-template-columns: 1fr; }
+          .marquee-label { min-width: 118px; }
         }
       `}</style>
 
@@ -311,7 +317,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           }}
         >
           {/* Left label block (~20%) */}
-          <div className="marquee-label" style={{ width: '20%', minWidth: '150px', display: 'flex', alignItems: 'center', flexShrink: 0 }}>
+          <div className="marquee-label">
             <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', paddingLeft: '16px' }}>
               <span style={{ fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--faint)', fontWeight: 600 }}>
                 Toolbox
@@ -359,12 +365,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         </div>
 
         {/* ================= BENTO GRID ================= */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '16px' }} className="bento-grid">
+        <div className="bento-grid">
           {/* ---- TOP ROW ---- */}
           {/* Featured Showcase Card (span 2): Portfolio glance */}
           <div
             className="bento-card bento-span-2"
-            style={{ gridColumn: 'span 2', borderRadius: '20px', padding: '20px 24px', display: 'flex', flexDirection: 'column', gap: '12px' }}
+            style={{ borderRadius: '20px', padding: '20px 24px', display: 'flex', flexDirection: 'column', gap: '12px' }}
           >
             <div style={{ fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--faint)', fontWeight: 600 }}>
               Featured · Portfolio
@@ -377,13 +383,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             </p>
             <div
               className="bento-feature-inner"
-              style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', borderRadius: '12px', overflow: 'hidden', border: '1px solid var(--card-border)' }}
             >
               {/* Column 1: project names */}
               <div style={{ display: 'flex', flexDirection: 'column' }}>
                 {showcaseProjects.map((project) => (
                   <button
-                    key={`${project.name}-${project.focus}`}
+                    key={project.id}
                     type="button"
                     onClick={() => project.live && go(NAV.portfolio)}
                     className={project.live ? 'contact-row' : undefined}
@@ -696,8 +701,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
           {/* Testimonials & Client Card (span 2): approved visitor reviews */}
           <div
-            className="bento-card"
-            style={{ gridColumn: 'span 2', borderRadius: '20px', padding: '20px 24px', display: 'flex', flexDirection: 'column', gap: '12px' }}
+            className="bento-card bento-span-2"
+            style={{ borderRadius: '20px', padding: '20px 24px', display: 'flex', flexDirection: 'column', gap: '12px' }}
           >
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '12px' }}>
               <div>
@@ -727,7 +732,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 No published reviews yet — be the first to share your experience. Reviews appear here after approval.
               </p>
             ) : (
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '12px' }} className="bento-testimonials">
+              <div className="bento-testimonials">
                 {approved.slice(0, 4).map((t, i) => (
                   <figure key={`${t.name}-${i}`} style={{ margin: 0, background: 'var(--pill)', borderRadius: '10px', padding: '12px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
                     <blockquote style={{ margin: 0, fontSize: '13px', color: 'var(--ink)', lineHeight: 1.55 }}>

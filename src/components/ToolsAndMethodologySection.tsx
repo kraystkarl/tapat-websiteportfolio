@@ -295,11 +295,12 @@ export const ToolsAndMethodologySection: React.FC<ToolsAndMethodologySectionProp
         .svc-grid-5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
         .svc-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; position: relative; }
         .svc-connect { position: absolute; top: 60px; left: 32px; right: 32px; height: 1px; background: var(--card-border); }
+        .svc-split { display: grid; grid-template-columns: 1fr 3fr; gap: 32px; align-items: start; }
         @media (max-width: 1279px) { .svc-grid-5 { grid-template-columns: repeat(3, 1fr); } }
         @media (max-width: 1023px) {
           .svc-grid-3 { grid-template-columns: 1fr; }
           .svc-connect { display: none; }
-          .svc-split { grid-template-columns: 1fr !important; }
+          .svc-split { grid-template-columns: 1fr; }
         }
         @media (max-width: 639px) { .svc-grid-5 { grid-template-columns: 1fr; } }
       `}</style>
@@ -340,7 +341,7 @@ export const ToolsAndMethodologySection: React.FC<ToolsAndMethodologySectionProp
         >
 
           {/* ============ 3. SOFTWARE STACK ============ */}
-          <div className="svc-split" style={{ display: 'grid', gridTemplateColumns: '1fr 3fr', gap: '32px', alignItems: 'start' }}>
+          <div className="svc-split">
             {/* Left header (25–30%) */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
               <span style={{ fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.14em', color: 'var(--faint)', fontWeight: 700 }}>
