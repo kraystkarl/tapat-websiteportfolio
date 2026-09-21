@@ -1921,6 +1921,22 @@ html[data-theme="dark"] .proj-close{ border-color:rgba(209,207,195,0.3); }
   body > *{ display:none !important; }
 }
 
+/* Touch screens : no custom cursor, native behavior */
+@media (hover:none), (pointer:coarse){
+  .cursor-dot{ display:none !important; }
+  *{ cursor:auto !important; }
+}
+
+/* Theme polish : selection + autofill follow the theme */
+::selection{ background:var(--ink); color:var(--bg); }
+
+.field input:-webkit-autofill,
+.field textarea:-webkit-autofill{
+  -webkit-text-fill-color:var(--ink);
+  caret-color:var(--ink);
+  transition:background-color 99999s ease;
+}
+
 /* ---- ROLE PAGES : hero, floating home, content sections ---- */
 .role-hero{
   position:relative;
@@ -1958,7 +1974,7 @@ html[data-theme="dark"] .proj-close{ border-color:rgba(209,207,195,0.3); }
 .role-hero-top .svc-heading{
   flex:1 1 auto;
   min-width:0;
-  font-size:clamp(32px, 4.6vw, 58px);
+  font-size:clamp(28px, 4.6vw, 58px);
 }
 
 .role-hero-top .inquire-btn{ flex:none; }
@@ -2709,6 +2725,12 @@ html[data-theme="dark"] .connect-grid a{ border-color:rgba(209,207,195,0.25); }
   .marquee-track span{ font-size:12px; }
   .svc-heading{ font-size:clamp(38px, 12vw, 48px); }
   .contact-title{ font-size:clamp(32px, 10vw, 44px); }
+  /* Role heroes : headline + pill stack instead of squeezing */
+  .role-hero-top{ flex-wrap:wrap; gap:14px; }
+  .role-hero-top .svc-heading{ font-size:clamp(30px, 10vw, 40px); }
+  .exp-tabs{ grid-template-columns:1fr; }
+  .case-steps{ grid-template-columns:repeat(2, 1fr); }
+  .about-title{ white-space:normal; }
   /* Modal breathing room */
   .proj-card{ padding:24px 16px 20px; }
   .proj-thumbs{ overflow-x:auto; }
