@@ -1,26 +1,359 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Christ Carl Tapat | Construction Estimator Portfolio</title>
-    <meta name="description" content="Professional construction estimating portfolio of Christ Carl Tapat, Civil Engineer & Quantity Take-Off Specialist with 60+ projects completed." />
-    <meta property="og:title" content="Christ Carl Tapat | Construction Estimator Portfolio" />
-    <meta property="og:description" content="Professional construction estimating portfolio of Christ Carl Tapat, Civil Engineer & Quantity Take-Off Specialist with 60+ projects completed." />
-    <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="theme-color" content="#F5F4EF" id="theme-color-meta" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Manrope:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
-    <link rel="preconnect" href="https://fonts.cdnfonts.com" />
-    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
-    <link href="https://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet" />
-    <link href="https://fonts.cdnfonts.com/css/sf-mono" rel="stylesheet" />
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
-</html>
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CARL TAPAT</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Newsreader:ital,opsz,wght@1,6..72,400;1,6..72,500&family=Space+Mono:wght@400;700&family=Nunito:ital,wght@1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
 
+<!-- GRID OVERLAY -->
+<div class="grid-overlay" aria-hidden="true"></div>
+
+<!-- GRAIN NOISE -->
+<div class="grain" aria-hidden="true"></div>
+
+<!-- MOUSE SPOTLIGHT -->
+<div class="glow" id="glow" aria-hidden="true"></div>
+
+<!-- NAV : hidden on landing, reveals on scroll -->
+<header class="nav" id="nav">
+  <a class="brand" href="#top" aria-label="Back to top">
+    <span class="avatar" role="img" aria-label="Profile photo coming soon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.6"/><path d="M4 17l4.5-4.5 3 3L16 11l4 4"/></svg></span>
+    <span class="open-tag"><span class="pulse" aria-hidden="true"></span>#OPENFORWORK</span>
+  </a>
+  <nav class="links" aria-label="Primary">
+    <a href="#top">HOME</a>
+    <a href="about.html">ABOUT</a>
+    <a href="#works">WORKS</a>
+    <div class="nav-drop">
+      <a href="#services" class="drop-toggle" id="svcToggle" aria-haspopup="true" aria-expanded="false">SERVICES <span class="drop-caret" aria-hidden="true">▾</span></a>
+      <div class="drop-menu" role="menu" aria-labelledby="svcToggle">
+        <!-- EDIT : point each item at its dedicated section/page once built -->
+        <a href="estimator.html" role="menuitem">Construction Estimator</a>
+        <a href="coordinator.html" role="menuitem">Project Coordinator</a>
+        <a href="admin.html" role="menuitem">Construction Admin</a>
+      </div>
+    </div>
+  </nav>
+  <div class="nav-actions">
+    <button class="theme-btn" id="themeToggle" aria-label="Toggle dark mode" aria-pressed="false"><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+    <a class="work-btn" href="#contact">LETS WORK</a>
+  </div>
+</header>
+
+<!-- HERO : one centered stack -->
+<main class="stage" id="top">
+  <div class="hero-wrap">
+    <h1 class="hero-title">Carl Tapat</h1>
+    <div class="below">
+      <p class="roles" aria-live="polite"><span class="roles-mask">
+        <span class="roles-item is-active">Civil Engineer</span>
+        <span class="roles-item">Construction Estimator</span>
+        <span class="roles-item">Bid / Tender Manager</span>
+        <span class="roles-item">Document Controller</span>
+        <span class="roles-item">Construction Admin</span>
+        <span class="roles-item">Project Coordinator</span>
+      </span></p>
+      <div class="actions">
+        <a class="icon-btn" href="https://www.linkedin.com/in/christ-carl-tapat-23a53241b/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+        <a class="icon-btn" href="mailto:engr.christcarl@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
+        <a class="cta" href="./Tapat_CV.pdf" download="Tapat_CV.pdf">DOWNLOAD CV <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v16m0 0l-6-6m6 6l6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a class="icon-btn" href="https://wa.me/639625406989" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+        <a class="icon-btn" href="https://cal.com/tapat-christcarl/30min" target="_blank" rel="noopener" aria-label="Schedule a Call"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7v-5z"/></svg></a>
+      </div>
+    </div>
+  </div>
+</main>
+
+
+<!-- AT A GLANCE : marquee ribbon + KPI stats + tools -->
+<section class="glance" id="glance">
+  <div class="marquee" role="marquee" aria-label="Core services">
+    <div class="marquee-track">
+      <span>CONSTRUCTION ESTIMATOR&nbsp;&nbsp;•&nbsp;&nbsp;TAKE-OFF SPECIALIST&nbsp;&nbsp;•&nbsp;&nbsp;PROJECT COORDINATOR&nbsp;&nbsp;•&nbsp;&nbsp;CIVIL ENGINEER&nbsp;&nbsp;•&nbsp;&nbsp;DOCUMENT CONTROLLER&nbsp;&nbsp;•&nbsp;&nbsp;CONSTRUCTION ADMIN&nbsp;&nbsp;•&nbsp;&nbsp;CONSTRUCTION ESTIMATOR&nbsp;&nbsp;•&nbsp;&nbsp;TAKE-OFF SPECIALIST&nbsp;&nbsp;•&nbsp;&nbsp;PROJECT COORDINATOR&nbsp;&nbsp;•&nbsp;&nbsp;CIVIL ENGINEER&nbsp;&nbsp;•&nbsp;&nbsp;DOCUMENT CONTROLLER&nbsp;&nbsp;•&nbsp;&nbsp;CONSTRUCTION ADMIN&nbsp;&nbsp;•&nbsp;&nbsp;</span>
+      <span aria-hidden="true">CONSTRUCTION ESTIMATOR&nbsp;&nbsp;•&nbsp;&nbsp;TAKE-OFF SPECIALIST&nbsp;&nbsp;•&nbsp;&nbsp;PROJECT COORDINATOR&nbsp;&nbsp;•&nbsp;&nbsp;CIVIL ENGINEER&nbsp;&nbsp;•&nbsp;&nbsp;DOCUMENT CONTROLLER&nbsp;&nbsp;•&nbsp;&nbsp;CONSTRUCTION ADMIN&nbsp;&nbsp;•&nbsp;&nbsp;CONSTRUCTION ESTIMATOR&nbsp;&nbsp;•&nbsp;&nbsp;TAKE-OFF SPECIALIST&nbsp;&nbsp;•&nbsp;&nbsp;PROJECT COORDINATOR&nbsp;&nbsp;•&nbsp;&nbsp;CIVIL ENGINEER&nbsp;&nbsp;•&nbsp;&nbsp;DOCUMENT CONTROLLER&nbsp;&nbsp;•&nbsp;&nbsp;CONSTRUCTION ADMIN&nbsp;&nbsp;•&nbsp;&nbsp;</span>
+    </div>
+  </div>
+  <div class="glance-inner">
+    <div class="kpi-grid">
+      <article class="kpi-card">
+        <p class="kpi-num">3+</p>
+        <p class="kpi-label">Years Experience</p>
+      </article>
+      <article class="kpi-card">
+        <p class="kpi-num">60+</p>
+        <p class="kpi-label">Projects Handled</p>
+      </article>
+      <article class="kpi-card">
+        <p class="kpi-num">2</p>
+        <p class="kpi-label">PRC License</p>
+      </article>
+    </div>
+  </div>
+  <!-- BOTTOM MARQUEE : identical to top marquee, encloses the KPI cards -->
+  <div class="marquee" role="marquee" aria-label="Core services">
+    <div class="marquee-track">
+      <span>CONSTRUCTION ESTIMATOR&nbsp;&nbsp;•&nbsp;&nbsp;TAKE-OFF SPECIALIST&nbsp;&nbsp;•&nbsp;&nbsp;PROJECT COORDINATOR&nbsp;&nbsp;•&nbsp;&nbsp;CIVIL ENGINEER&nbsp;&nbsp;•&nbsp;&nbsp;DOCUMENT CONTROLLER&nbsp;&nbsp;•&nbsp;&nbsp;CONSTRUCTION ADMIN&nbsp;&nbsp;•&nbsp;&nbsp;CONSTRUCTION ESTIMATOR&nbsp;&nbsp;•&nbsp;&nbsp;TAKE-OFF SPECIALIST&nbsp;&nbsp;•&nbsp;&nbsp;PROJECT COORDINATOR&nbsp;&nbsp;•&nbsp;&nbsp;CIVIL ENGINEER&nbsp;&nbsp;•&nbsp;&nbsp;DOCUMENT CONTROLLER&nbsp;&nbsp;•&nbsp;&nbsp;CONSTRUCTION ADMIN&nbsp;&nbsp;•&nbsp;&nbsp;</span>
+      <span aria-hidden="true">CONSTRUCTION ESTIMATOR&nbsp;&nbsp;•&nbsp;&nbsp;TAKE-OFF SPECIALIST&nbsp;&nbsp;•&nbsp;&nbsp;PROJECT COORDINATOR&nbsp;&nbsp;•&nbsp;&nbsp;CIVIL ENGINEER&nbsp;&nbsp;•&nbsp;&nbsp;DOCUMENT CONTROLLER&nbsp;&nbsp;•&nbsp;&nbsp;CONSTRUCTION ADMIN&nbsp;&nbsp;•&nbsp;&nbsp;CONSTRUCTION ESTIMATOR&nbsp;&nbsp;•&nbsp;&nbsp;TAKE-OFF SPECIALIST&nbsp;&nbsp;•&nbsp;&nbsp;PROJECT COORDINATOR&nbsp;&nbsp;•&nbsp;&nbsp;CIVIL ENGINEER&nbsp;&nbsp;•&nbsp;&nbsp;DOCUMENT CONTROLLER&nbsp;&nbsp;•&nbsp;&nbsp;CONSTRUCTION ADMIN&nbsp;&nbsp;•&nbsp;&nbsp;</span>
+    </div>
+  </div>
+  <div class="glance-inner glance-inner--tight">
+    <div class="tools-card" id="toolsCard">
+      <div class="tools-cols">
+        <div class="tool-cat">
+          <h3>Construction Estimator</h3>
+          <ul class="pills">
+            <li><span class="pill-logo" aria-hidden="true">PL</span>PlanSwift</li>
+            <li><span class="pill-logo" aria-hidden="true">BR</span>Bluebeam Revu</li>
+            <li><span class="pill-logo pill-logo--img" aria-hidden="true"><img src="./icons/excel-logo.svg" alt="" width="14" height="14" loading="lazy"></span>Microsoft Excel</li>
+          </ul>
+        </div>
+        <div class="tool-cat">
+          <h3>Construction Admin</h3>
+          <ul class="pills">
+            <li><span class="pill-logo" aria-hidden="true">M3</span>Microsoft 365</li>
+            <li><span class="pill-logo pill-logo--img" aria-hidden="true"><img src="./icons/google-workspace-logo.svg" alt="" width="14" height="14" loading="lazy"></span>Google Workspace</li>
+            <li><span class="pill-logo pill-logo--img" aria-hidden="true"><img src="./icons/canva-logo.svg" alt="" width="14" height="14" loading="lazy"></span>Canva</li>
+            <li><span class="pill-logo pill-logo--img" aria-hidden="true"><img src="./icons/ai-tools-logo.svg" alt="" width="14" height="14" loading="lazy"></span>AI Tools/Software</li>
+          </ul>
+        </div>
+      </div>
+      <div class="extra">
+        <div class="extra-body">
+          <div class="extra-group">
+            <p class="extra-title">Design &amp; Rendering</p>
+            <ul class="pills">
+              <li><span class="pill-logo pill-logo--img" aria-hidden="true"><img src="./icons/autocad-logo.svg" alt="" width="14" height="14" loading="lazy"></span>AutoCAD (2D drawing)</li>
+              <li><span class="pill-logo pill-logo--img" aria-hidden="true"><img src="./icons/sketchup-logo.svg" alt="" width="14" height="14" loading="lazy"></span>SketchUp (3D drawing)</li>
+              <li><span class="pill-logo pill-logo--img" aria-hidden="true"><img src="./icons/lumion-logo.svg" alt="" width="14" height="14" loading="lazy"></span>Lumion (Rendering)</li>
+            </ul>
+          </div>
+          <div class="extra-group">
+            <p class="extra-title">Communication &amp; Collaboration</p>
+            <ul class="pills">
+              <li><span class="pill-logo pill-logo--img" aria-hidden="true"><img src="./icons/zoom-logo.svg" alt="" width="14" height="14" loading="lazy"></span>Zoom</li>
+              <li><span class="pill-logo pill-logo--img" aria-hidden="true"><img src="./icons/meet-logo.svg" alt="" width="14" height="14" loading="lazy"></span>Google Meet</li>
+              <li><span class="pill-logo pill-logo--img" aria-hidden="true"><img src="./icons/teams-logo.svg" alt="" width="14" height="14" loading="lazy"></span>Microsoft Teams</li>
+              <li><span class="pill-logo pill-logo--img" aria-hidden="true"><img src="./icons/whatsapp-logo.svg" alt="" width="14" height="14" loading="lazy"></span>WhatsApp</li>
+              <li><span class="pill-logo pill-logo--img" aria-hidden="true"><img src="./icons/gmail-logo.svg" alt="" width="14" height="14" loading="lazy"></span>Gmail</li>
+            </ul>
+          </div>
+          <div class="extra-group">
+            <p class="extra-title">Hobbies</p>
+            <ul class="pills">
+              <li><span class="pill-logo pill-logo--img" aria-hidden="true"><img src="./icons/davinci-logo.svg" alt="" width="14" height="14" loading="lazy"></span>DaVinci Resolve</li>
+              <li><span class="pill-logo" aria-hidden="true">CC</span>CapCut</li>
+              <li><span class="pill-logo pill-logo--img" aria-hidden="true"><img src="./icons/premiere-logo.svg" alt="" width="14" height="14" loading="lazy"></span>Premiere Pro</li>
+              <li><span class="pill-logo pill-logo--img" aria-hidden="true"><img src="./icons/ai-tools-logo.svg" alt="" width="14" height="14" loading="lazy"></span>AI Tools</li>
+            </ul>
+          </div>
+          <!-- ADD MORE TOOL GROUPS OR PILLS HERE : copy a group above -->
+        </div>
+      </div>
+      <div class="tools-foot">
+        <button class="view-all" id="viewAllBtn" aria-expanded="false" aria-controls="toolsCard"><span class="va-label">VIEW ALL</span> <span class="va-arrow" aria-hidden="true">⌄</span></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES : 3-column card grid -->
+<section class="services" id="services">
+  <div class="sec-head">
+    <h2 class="svc-heading">Services</h2>
+  </div>
+  <div class="svc-grid">
+    <!-- EDIT : service card copy -->
+    <article class="svc-card">
+      <h3>Construction Estimator</h3>
+      <p class="svc-card-body">Instant BOQ takeoffs and cost breakdowns that keep every bid accurate and complete.</p>
+      <ul class="svc-points">
+        <li>BOQ preparation</li>
+        <li>Quantity takeoffs</li>
+        <li>Cost breakdowns</li>
+      </ul>
+      <a class="learn-more" href="estimator.html">Learn more <span class="learn-arrow" aria-hidden="true">→</span></a>
+    </article>
+    <article class="svc-card">
+      <h3>Project Coordinator</h3>
+      <p class="svc-card-body">Scheduling and site admin support that keeps drawings, documents, and site teams aligned.</p>
+      <ul class="svc-points">
+        <li>Project scheduling</li>
+        <li>Site coordination</li>
+        <li>Document control</li>
+      </ul>
+      <a class="learn-more" href="coordinator.html">Learn more <span class="learn-arrow" aria-hidden="true">→</span></a>
+    </article>
+    <article class="svc-card">
+      <h3>Construction Admin</h3>
+      <!-- EDIT : admin card copy -->
+      <p class="svc-card-body">Structured back-office support — organized documents, schedules, and coordination that keep teams informed and on track.</p>
+      <ul class="svc-points">
+        <li>Document organization</li>
+        <li>Schedule coordination</li>
+        <li>Remote tool fluency</li>
+      </ul>
+      <a class="learn-more" href="admin.html">Learn more <span class="learn-arrow" aria-hidden="true">→</span></a>
+    </article>
+  </div>
+</section>
+
+<!-- FEATURED WORKS : case-study card grid -->
+<section class="works" id="works">
+  <div class="sec-head">
+    <h2 class="svc-heading">Featured Works</h2>
+  </div>
+  <div class="feat-grid">
+    <!-- EDIT : project copy, images live in ./work/ -->
+    <a class="feat-card" href="#contact" data-project="0">
+      <span class="feat-media"><img src="./work/au-timber-thumb.jpg" alt="Architectural elevation of the AU timber frame residence" loading="lazy"><span class="feat-overlay" aria-hidden="true"><span class="feat-view">View project</span></span></span>
+      <span class="feat-body">
+        <span class="feat-title">AU Timber Frame Architectural Estimating</span>
+        <span class="feat-desc">Full architectural estimate for an Australian timber-frame residence — calibrated Bluebeam take-offs across five plates, formula-linked Excel quantities, a reviewed trade BOQ, RFI log, and a zero-variance QC trail.</span>
+        <span class="feat-tag">Construction Estimating</span>
+        <span class="feat-tools"><span><span class="pill-logo" aria-hidden="true">BR</span>Bluebeam Revu</span><span><span class="pill-logo" aria-hidden="true">FX</span>Foxit PDF</span><span><span class="pill-logo pill-logo--img" aria-hidden="true"><img src="./icons/excel-logo.svg" alt="" width="14" height="14" loading="lazy"></span>Microsoft Excel</span></span>
+      </span>
+    </a>
+    <!-- EDIT : replace with the next case file once ready -->
+    <a class="feat-card is-locked" href="#contact" data-project="1" aria-label="Upcoming case file, opens locked notice">
+      <span class="feat-media"><img src="./work/area-takeoff-ceiling-floor.jpg" alt="Structural takeoff preview" loading="lazy"><span class="feat-overlay" aria-hidden="true"><span class="feat-view">View project</span></span></span>
+      <span class="feat-body">
+        <span class="feat-title">AU Structural Estimating</span>
+        <span class="feat-desc">Structural quantity takeoff with BOQ-ready quantities verified line by line against the drawings.</span>
+        <span class="feat-tag">Project Coordination</span>
+        <span class="feat-tools"><span><span class="pill-logo pill-logo--img" aria-hidden="true"><img src="./icons/autocad-logo.svg" alt="" width="14" height="14" loading="lazy"></span>AutoCAD</span><span><span class="pill-logo pill-logo--img" aria-hidden="true"><img src="./icons/excel-logo.svg" alt="" width="14" height="14" loading="lazy"></span>Excel</span></span>
+      </span>
+    </a>
+    <a class="feat-card is-locked" href="#contact" data-project="2" aria-label="Upcoming case file, opens locked notice">
+      <span class="feat-media"><img src="./work/count-takeoff-doors-windows.jpg" alt="Residential takeoff preview" loading="lazy"><span class="feat-overlay" aria-hidden="true"><span class="feat-view">View project</span></span></span>
+      <span class="feat-body">
+        <span class="feat-title">PH Residential Take-off</span>
+        <span class="feat-desc">Full residential takeoff coordinated from plans to final quantities and documentation.</span>
+        <span class="feat-tag">Construction Admin</span>
+        <span class="feat-tools"><span><span class="pill-logo pill-logo--img" aria-hidden="true"><img src="./icons/google-workspace-logo.svg" alt="" width="14" height="14" loading="lazy"></span>Workspace</span><span><span class="pill-logo" aria-hidden="true">M3</span>M365</span></span>
+      </span>
+    </a>
+  </div>
+</section>
+
+<!-- CONTACT : form + profile columns -->
+<section class="contact" id="contact">
+  <h2 class="contact-title">Lets <em>work</em> together</h2>
+  <div class="contact-cols">
+    <form class="contact-form" id="contactForm" novalidate>
+      <div class="field-row">
+        <div class="field">
+          <label for="cfName">Name *</label>
+          <input id="cfName" name="name" type="text" placeholder="Your full name" required autocomplete="name">
+        </div>
+        <div class="field">
+          <label for="cfEmail">Email *</label>
+          <input id="cfEmail" name="email" type="email" placeholder="you@company.com" required autocomplete="email">
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="cfCompany">Business / Company</label>
+          <input id="cfCompany" name="company" type="text" placeholder="Optional" autocomplete="organization">
+        </div>
+        <div class="field">
+          <label for="cfPhone">Phone number</label>
+          <input id="cfPhone" name="phone" type="tel" placeholder="Optional" autocomplete="tel">
+        </div>
+      </div>
+      <div class="field">
+        <label for="cfMsg">Message / Project role *</label>
+        <textarea id="cfMsg" name="message" rows="5" placeholder="Tell me about your project or the role you want to offer…" required></textarea>
+      </div>
+      <button class="send-btn" type="submit">Send message <span aria-hidden="true">→</span></button>
+      <p class="form-note">Sends via your email app, addressed straight to me.</p>
+    </form>
+    <aside class="contact-side">
+      <div class="profile-photo"><img src="./assets/profile-1x1.jpg" alt="Christ Carl Tapat, civil engineer" loading="lazy"><span class="photo-tag">Christ Carl U. Tapat <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm-1.2 14.2-4-4 1.4-1.4 2.6 2.6 5.6-5.6 1.4 1.4-7 7z"/></svg></span></div>
+      <div class="avail-card">
+        <div class="avail-row">
+          <p class="avail-top"><span class="pulse" aria-hidden="true"></span>Open for remote work</p>
+          <p class="ph-time"><span id="phTime">--:--</span> <span class="ph-zone">PHT</span></p>
+        </div>
+        <p class="avail-zones">Open for AU / US time zones</p>
+      </div>
+      <div class="connect-grid">
+        <a href="https://cal.com/tapat-christcarl/30min" target="_blank" rel="noopener">Cal.com <span aria-hidden="true">↗</span></a>
+        <a href="https://www.linkedin.com/in/christ-carl-tapat-23a53241b/" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span></a>
+        <a href="mailto:engr.christcarl@gmail.com">Email <span aria-hidden="true">↗</span></a>
+        <a href="https://wa.me/639625406989" target="_blank" rel="noopener">WhatsApp <span aria-hidden="true">↗</span></a>
+      </div>
+      <a class="cta resume-btn" href="./Tapat_CV.pdf" download="Tapat_CV.pdf">Download resume <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v16m0 0l-6-6m6 6l6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </aside>
+  </div>
+  <p class="foot"><span>© 2026 Christ Carl Tapat. All rights reserved.</span><a href="#top">BACK TO TOP ↑</a></p>
+</section>
+
+<!-- PROJECT DETAIL MODAL : filled by hero.js from PROJECTS data -->
+<div class="proj-modal" id="projModal" aria-hidden="true">
+  <div class="proj-backdrop" data-close></div>
+  <div class="proj-card" role="dialog" aria-modal="true" aria-labelledby="projTitle">
+    <button class="proj-close" id="projClose" aria-label="Close project details">×</button>
+    <div class="proj-head">
+      <p class="proj-tag" id="projTag"></p>
+      <h3 id="projTitle"></h3>
+      <p class="proj-role" id="projRole"></p>
+    </div>
+    <div class="proj-cols">
+      <div class="proj-media">
+        <div class="proj-hero">
+          <img id="projHeroImg" src="" alt="" draggable="false">
+          <button class="proj-arrow proj-prev" id="projPrev" aria-label="Previous image">‹</button>
+          <button class="proj-arrow proj-next" id="projNext" aria-label="Next image">›</button>
+          <button class="proj-expand" id="projExpand" aria-label="View image full size">⤢</button>
+          <span class="proj-count" id="projCount">1 / 1</span>
+        </div>
+        <div class="proj-thumbs" id="projThumbs"></div>
+        <div class="proj-progress" aria-hidden="true"><span id="projBar"></span></div>
+      </div>
+      <div class="proj-info">
+        <div class="proj-block">
+          <p class="proj-label">Project overview</p>
+          <p class="proj-overview" id="projOverview"></p>
+        </div>
+        <div class="proj-block">
+          <p class="proj-label">Key highlights</p>
+          <ul class="proj-highs" id="projHighs"></ul>
+        </div>
+        <div class="proj-block">
+          <p class="proj-label">Tools &amp; software</p>
+          <ul class="pills" id="projTools"></ul>
+        </div>
+      </div>
+    </div>
+    <div class="case-wrap" id="caseWrap" hidden></div>
+    <div class="locked-wrap" id="lockedWrap" hidden>
+      <span class="lock-big" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3" fill="none" stroke="currentColor" stroke-width="2"/></svg></span>
+      <h4>Locked case file</h4>
+      <p>This project is still being documented and protected. It unlocks here the moment it's ready — check back soon.</p>
+      <button class="ghost-btn" data-close>Back to works</button>
+    </div>
+  </div>
+</div>
+
+<!-- FULL-SIZE VIEWER : highest-quality image view, save-restricted -->
+<div class="zoom-modal" id="zoomModal" aria-hidden="true">
+  <div class="proj-backdrop" data-zoom-close></div>
+  <button class="proj-close" id="zoomClose" aria-label="Close full-size view">×</button>
+  <button class="proj-arrow zoom-prev" id="zoomPrev" aria-label="Previous image">‹</button>
+  <img id="zoomImg" src="" alt="" draggable="false">
+  <button class="proj-arrow zoom-next" id="zoomNext" aria-label="Next image">›</button>
+  <span class="proj-count zoom-count" id="zoomCount">1 / 1</span>
+</div>
+
+<!-- CUSTOM CURSOR -->
+<div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+
+<script src="hero.js"></script>
+</body>
+</html>

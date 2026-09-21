@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About — CARL TAPAT</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Newsreader:ital,opsz,wght@1,6..72,400;1,6..72,500&family=Space+Mono:wght@400;700&family=Nunito:ital,wght@1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body class="nav-lock">
+
+<!-- GRID OVERLAY -->
+<div class="grid-overlay" aria-hidden="true"></div>
+
+<!-- GRAIN NOISE -->
+<div class="grain" aria-hidden="true"></div>
+
+<!-- MOUSE SPOTLIGHT -->
+<div class="glow" id="glow" aria-hidden="true"></div>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <a class="brand" href="index.html#top" aria-label="Back to home">
+    <span class="avatar" role="img" aria-label="Profile photo coming soon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.6"/><path d="M4 17l4.5-4.5 3 3L16 11l4 4"/></svg></span>
+    <span class="open-tag"><span class="pulse" aria-hidden="true"></span>#OPENFORWORK</span>
+  </a>
+  <nav class="links" aria-label="Primary">
+    <a href="index.html#top">HOME</a>
+    <a href="about.html" aria-current="page">ABOUT</a>
+    <a href="index.html#works">WORKS</a>
+    <div class="nav-drop">
+      <a href="index.html#services" class="drop-toggle" id="svcToggle" aria-haspopup="true" aria-expanded="false">SERVICES <span class="drop-caret" aria-hidden="true">▾</span></a>
+      <div class="drop-menu" role="menu" aria-labelledby="svcToggle">
+        <!-- EDIT : point each item at its dedicated section/page once built -->
+        <a href="estimator.html" role="menuitem">Construction Estimator</a>
+        <a href="coordinator.html" role="menuitem">Project Coordinator</a>
+        <a href="admin.html" role="menuitem">Construction Admin</a>
+      </div>
+    </div>
+  </nav>
+  <div class="nav-actions">
+    <button class="theme-btn" id="themeToggle" aria-label="Toggle dark mode" aria-pressed="false"><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+    <a class="work-btn" href="index.html#contact">LETS WORK</a>
+  </div>
+</header>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-inner">
+    <div class="about-hero">
+      <div class="about-photo"><img src="./assets/about-photo.jpg" alt="Christ Carl Tapat on site wearing a hard hat and vest" loading="lazy"></div>
+      <div class="about-intro">
+        <h2 class="about-title">Hi I'm Carl</h2>
+        <p>As a Construction Estimator with registered Civil Engineer and Master Plumber credentials, I bridge architectural drawings with mathematical precision. My focus is delivering structured quantity take-offs, trade-by-trade BOQs, and proactive preconstruction documentation that estimators and project leads can immediately review and trust.</p>
+        <p>Operating remotely from the Philippines (GMT+8), I support US and Australian construction teams during tender and preconstruction phases. Whether reviewing complex multi-trade drawing sets in PlanSwift or Bluebeam Revu, every measurement is calibrated, cross-checked, and traceably linked to clear line items.</p>
+        <div class="about-ctas">
+          <a class="cta" href="./Tapat_CV.pdf" download="Tapat_CV.pdf">Download CV <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v16m0 0l-6-6m6 6l6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a class="ghost-btn" href="index.html#works">Works <span class="ghost-arrow" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="logo-marquee" aria-hidden="true">
+    <div class="logo-track">
+      <img src="./icons/excel-logo.svg" alt="" loading="lazy"><img src="./icons/autocad-logo.svg" alt="" loading="lazy"><img src="./icons/sketchup-logo.svg" alt="" loading="lazy"><img src="./icons/lumion-logo.svg" alt="" loading="lazy"><img src="./icons/zoom-logo.svg" alt="" loading="lazy"><img src="./icons/meet-logo.svg" alt="" loading="lazy"><img src="./icons/teams-logo.svg" alt="" loading="lazy"><img src="./icons/whatsapp-logo.svg" alt="" loading="lazy"><img src="./icons/gmail-logo.svg" alt="" loading="lazy"><img src="./icons/davinci-logo.svg" alt="" loading="lazy"><img src="./icons/premiere-logo.svg" alt="" loading="lazy"><img src="./icons/canva-logo.svg" alt="" loading="lazy"><img src="./icons/google-workspace-logo.svg" alt="" loading="lazy"><img src="./icons/ai-tools-logo.svg" alt="" loading="lazy">
+      <img src="./icons/excel-logo.svg" alt="" loading="lazy"><img src="./icons/autocad-logo.svg" alt="" loading="lazy"><img src="./icons/sketchup-logo.svg" alt="" loading="lazy"><img src="./icons/lumion-logo.svg" alt="" loading="lazy"><img src="./icons/zoom-logo.svg" alt="" loading="lazy"><img src="./icons/meet-logo.svg" alt="" loading="lazy"><img src="./icons/teams-logo.svg" alt="" loading="lazy"><img src="./icons/whatsapp-logo.svg" alt="" loading="lazy"><img src="./icons/gmail-logo.svg" alt="" loading="lazy"><img src="./icons/davinci-logo.svg" alt="" loading="lazy"><img src="./icons/premiere-logo.svg" alt="" loading="lazy"><img src="./icons/canva-logo.svg" alt="" loading="lazy"><img src="./icons/google-workspace-logo.svg" alt="" loading="lazy"><img src="./icons/ai-tools-logo.svg" alt="" loading="lazy">
+    </div>
+  </div>
+  <div class="about-inner">
+    <div class="tools-card" id="aboutToolsCard">
+      <div class="tools-cols">
+        <div class="tool-cat">
+          <h3>Construction Estimator</h3>
+          <ul class="pills">
+            <li><span class="pill-logo pill-logo--img" aria-hidden="true"><img src="./icons/excel-logo.svg" alt="" width="14" height="14" loading="lazy"></span>Microsoft Excel</li>
+            <li><span class="pill-logo" aria-hidden="true">PL</span>PlanSwift</li>
+            <li><span class="pill-logo" aria-hidden="true">BR</span>Bluebeam Revu</li>
+          </ul>
+        </div>
+        <div class="tool-cat">
+          <h3>Construction Admin</h3>
+          <ul class="pills">
+            <li><span class="pill-logo" aria-hidden="true">M3</span>Microsoft 365</li>
+            <li><span class="pill-logo pill-logo--img" aria-hidden="true"><img src="./icons/google-workspace-logo.svg" alt="" width="14" height="14" loading="lazy"></span>Google Workspace</li>
+            <li><span class="pill-logo pill-logo--img" aria-hidden="true"><img src="./icons/canva-logo.svg" alt="" width="14" height="14" loading="lazy"></span>Canva</li>
+            <li><span class="pill-logo pill-logo--img" aria-hidden="true"><img src="./icons/ai-tools-logo.svg" alt="" width="14" height="14" loading="lazy"></span>AI Tools/Software</li>
+          </ul>
+        </div>
+      </div>
+      <div class="extra">
+        <div class="extra-body">
+          <div class="extra-group">
+            <p class="extra-title">Design &amp; Rendering</p>
+            <ul class="pills">
+              <li><span class="pill-logo pill-logo--img" aria-hidden="true"><img src="./icons/autocad-logo.svg" alt="" width="14" height="14" loading="lazy"></span>AutoCAD (2D drawing)</li>
+              <li><span class="pill-logo pill-logo--img" aria-hidden="true"><img src="./icons/sketchup-logo.svg" alt="" width="14" height="14" loading="lazy"></span>SketchUp (3D drawing)</li>
+              <li><span class="pill-logo pill-logo--img" aria-hidden="true"><img src="./icons/lumion-logo.svg" alt="" width="14" height="14" loading="lazy"></span>Lumion (Rendering)</li>
+            </ul>
+          </div>
+          <div class="extra-group">
+            <p class="extra-title">Communication &amp; Collaboration</p>
+            <ul class="pills">
+              <li><span class="pill-logo pill-logo--img" aria-hidden="true"><img src="./icons/zoom-logo.svg" alt="" width="14" height="14" loading="lazy"></span>Zoom</li>
+              <li><span class="pill-logo pill-logo--img" aria-hidden="true"><img src="./icons/meet-logo.svg" alt="" width="14" height="14" loading="lazy"></span>Google Meet</li>
+              <li><span class="pill-logo pill-logo--img" aria-hidden="true"><img src="./icons/teams-logo.svg" alt="" width="14" height="14" loading="lazy"></span>Microsoft Teams</li>
+              <li><span class="pill-logo pill-logo--img" aria-hidden="true"><img src="./icons/whatsapp-logo.svg" alt="" width="14" height="14" loading="lazy"></span>WhatsApp</li>
+              <li><span class="pill-logo pill-logo--img" aria-hidden="true"><img src="./icons/gmail-logo.svg" alt="" width="14" height="14" loading="lazy"></span>Gmail</li>
+            </ul>
+          </div>
+          <div class="extra-group">
+            <p class="extra-title">Hobbies</p>
+            <ul class="pills">
+              <li><span class="pill-logo pill-logo--img" aria-hidden="true"><img src="./icons/davinci-logo.svg" alt="" width="14" height="14" loading="lazy"></span>DaVinci Resolve</li>
+              <li><span class="pill-logo" aria-hidden="true">CC</span>CapCut</li>
+              <li><span class="pill-logo pill-logo--img" aria-hidden="true"><img src="./icons/premiere-logo.svg" alt="" width="14" height="14" loading="lazy"></span>Premiere Pro</li>
+              <li><span class="pill-logo pill-logo--img" aria-hidden="true"><img src="./icons/ai-tools-logo.svg" alt="" width="14" height="14" loading="lazy"></span>AI Tools</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="tools-foot">
+        <button class="view-all" id="aboutViewAllBtn" aria-expanded="false" aria-controls="aboutToolsCard"><span class="va-label">VIEW ALL</span> <span class="va-arrow" aria-hidden="true">⌄</span></button>
+      </div>
+    </div>
+    <div class="cred-block">
+      <h2 class="sec-sub">Credentials</h2>
+      <div class="cred-cols">
+        <div class="cred-work">
+          <p class="proj-label">Work experience</p>
+      <div class="exp-tabs" role="tablist" aria-label="Work history">
+        <button class="exp-tab is-active" data-co="deepbluee" role="tab" aria-selected="true">Deepbluee Swimming Pool Builders<span>Nov 2022 – Dec 2025</span></button>
+        <button class="exp-tab" data-co="coquilla" role="tab" aria-selected="false">Coquilla Engineering Consultancy<span>Apr 2021 – Sept 2022</span></button>
+      </div>
+      <div class="exp-panel" data-panel="deepbluee" role="tabpanel">
+        <div class="exp-head">
+          <div>
+            <h3>Deepbluee Swimming Pool Builders</h3>
+            <p class="exp-role">Site Engineer / Estimator</p>
+          </div>
+          <p class="exp-date">Nov 2022 – Dec 2025 · Philippines</p>
+        </div>
+        <p class="exp-desc">Site Engineer / Estimator across 60+ construction projects — drawings, BOQs, take-offs, procurement support, and site documentation.</p>
+        <ul class="exp-scopes">
+          <li><strong>Drawings</strong><span>AutoCAD + SketchUp archi, structural, plumbing &amp; electrical plans</span></li>
+          <li><strong>Estimating</strong><span>60+ estimates · BOQs + Bluebeam take-offs · bid preparation</span></li>
+          <li><strong>Coordination</strong><span>RFA / RFI / concrete requests · cutting lists · site operations</span></li>
+        </ul>
+        <ul class="pills exp-tags"><li>PlanSwift</li><li>Bluebeam Revu</li><li>Excel</li><li>AutoCAD</li><li>SketchUp</li></ul>
+      </div>
+      <div class="exp-panel" data-panel="coquilla" role="tabpanel" hidden>
+        <div class="exp-head">
+          <div>
+            <h3>Coquilla Engineering Consultancy</h3>
+            <p class="exp-role">Engineer Aide / Project Coordinator</p>
+          </div>
+          <p class="exp-date">Apr 2021 – Sept 2022 · Philippines</p>
+        </div>
+        <p class="exp-desc">Permits, compliance, site supervision, and tender support for commercial and institutional projects.</p>
+        <ul class="exp-scopes">
+          <li><strong>Permits</strong><span>ECC + building permits · submissions for timely approvals</span></li>
+          <li><strong>Compliance &amp; sites</strong><span>Regulatory compliance · supervision to approved plans &amp; schedules</span></li>
+          <li><strong>Tenders</strong><span>Tender prep · cost forecasting · bid evaluation matrices</span></li>
+        </ul>
+        <ul class="pills exp-tags"><li>Excel</li><li>Bidding docs</li><li>ECC permits</li></ul>
+      </div>
+      </div>
+      <div class="cred-side">
+        <div class="cred">
+          <p class="proj-label">Education</p>
+          <div class="edu-head">
+            <!-- EDIT : swap the badge below for the official school logo file -->
+            <span class="edu-logo" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 4 2 9l10 5 10-5-10-5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M6 11.5V16c0 1.5 2.7 3 6 3s6-1.5 6-3v-4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M22 9v5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            <div>
+              <p class="cred-school">St. Mary's College of Tagum</p>
+              <p class="cred-course">BS Civil Engineering · Jun 2018 – May 2022</p>
+            </div>
+          </div>
+          <ul class="edu-honors">
+            <li><strong>Dean's Lister</strong><span>2018 – 2019</span></li>
+            <li><strong>Best Thesis &amp; Research Presenter</strong><span>2021</span></li>
+            <li><strong>GWA 91.88%</strong><span>Class of 2022</span></li>
+          </ul>
+        </div>
+        <div class="cred">
+          <p class="proj-label">License</p>
+          <ul class="license-rows">
+            <li><div><strong>Registered Master Plumber</strong><span>Licensure Examination Passer · PRC</span></div><em>Jul 2024</em></li>
+            <li><div><strong>Registered Civil Engineer</strong><span>Licensure Examination Passer · PRC</span></div><em>Apr 2023</em></li>
+            <li><div><strong>Civil Service Eligibility</strong><span>Professional Level · CSC</span></div><em>Aug 2018</em></li>
+          </ul>
+        </div>
+        <div class="cred train-card" id="trainCard">
+          <p class="proj-label">Trainings / Certificates</p>
+          <ul class="train-rows">
+            <li><span>Australian Timber Frame Architectural &amp; Structural Estimating</span><em>2026</em></li>
+            <li><span>PH Residential Complete PlanSwift Take-off</span><em>2026</em></li>
+            <li><span>Manual Construction Building Estimates</span><em>Jun 2023</em></li>
+          </ul>
+          <div class="extra">
+            <div class="extra-body">
+              <ul class="train-rows train-rest">
+                <li><span>Read &amp; Interpret Construction Drawings &amp; Specifications</span><em>May 2023</em></li>
+                <li><span>Project Management 101 — Traditional, Hybrid &amp; Agile</span><em>May 2023</em></li>
+                <li><span>Pre-Employment Seminar for Local Applicants</span><em>May 2023</em></li>
+                <li><span>Construction Occupational Safety &amp; Health — 40 hrs (SO2)</span><em>May 2023</em></li>
+                <li><span>Application of Construction Project Management Webinar</span><em>Feb 2022</em></li>
+                <li><span>ICETI-1 — Emerging Technologies &amp; Innovation</span><em>Dec 2021</em></li>
+              </ul>
+            </div>
+          </div>
+          <button class="mini-toggle" id="trainToggle" aria-expanded="false" aria-controls="trainCard"><span class="va-label">VIEW ALL</span> <span class="va-arrow" aria-hidden="true">⌄</span></button>
+        </div>
+      </div>
+      </div>
+    </div>
+    <div class="kpi-grid">
+      <article class="kpi-card">
+        <p class="kpi-num">3+</p>
+        <p class="kpi-label">Years Experience</p>
+      </article>
+      <article class="kpi-card">
+        <p class="kpi-num">60+</p>
+        <p class="kpi-label">Projects Handled</p>
+      </article>
+      <article class="kpi-card">
+        <p class="kpi-num">2</p>
+        <p class="kpi-label">PRC License</p>
+      </article>
+    </div>
+    <div class="setup-grid">
+      <div class="setup-card">
+        <p class="proj-label">My internet speed</p>
+        <p class="speed-big">202.5 <span>Mbps</span></p>
+        <p class="speed-sub">PLDT Home Fiber · Tested September 2026 · Cagayan de Oro server</p>
+        <p class="speed-meta">201.4 Mbps upload · 5 ms ping — built for live screen-shares and same-day turnarounds.</p>
+      </div>
+      <div class="setup-card">
+        <p class="proj-label">My own workstation</p>
+        <ul class="pills device-chips"><li>Desktop</li><li>iPad</li><li>Laptop</li></ul>
+        <ul class="spec-rows">
+          <li><span>System</span><em>Windows 11 Pro · 64-bit</em></li>
+          <li><span>Processor</span><em>Intel Core i5-10400 · 6C / 12T</em></li>
+          <li><span>Memory</span><em>32 GB RAM</em></li>
+          <li><span>Graphics</span><em>NVIDIA GTX 1660 SUPER</em></li>
+        </ul>
+        <p class="speed-meta">PlanSwift &amp; Bluebeam run multi-sheet sets smoothly; AutoCAD and heavy Excel workbooks stay lag-free.</p>
+      </div>
+    </div>
+    <div class="faq-block">
+      <h2 class="sec-sub">Questions, answered</h2>
+      <details class="faq" open>
+        <summary>Why should we hire you over other estimators?<span class="faq-arrow" aria-hidden="true">⌄</span></summary>
+        <p>I'm a licensed Civil Engineer and Master Plumber with 60+ projects estimated — not just a takeoff operator. Every quantity I deliver is calibrated, cross-checked, and traceable back to the drawing, so your bids rest on numbers you can defend.</p>
+      </details>
+      <details class="faq">
+        <summary>Can you cover our hours and hit tender deadlines?<span class="faq-arrow" aria-hidden="true">⌄</span></summary>
+        <p>Yes. I work from the Philippines (GMT+8) with daily overlap for US and Australian teams, reply within 24 hours, and urgent tender deadlines get priority scheduling — just flag the bid date up front.</p>
+      </details>
+      <details class="faq">
+        <summary>What exactly will our team receive?<span class="faq-arrow" aria-hidden="true">⌄</span></summary>
+        <p>Calibrated take-off markups, a trade-by-trade BOQ, an RFI log for drawing conflicts, a zero-variance QC reconciliation matrix, and CSV traceability back to every measurement — ready for your leads to review.</p>
+      </details>
+      <details class="faq">
+        <summary>Do you have your own remote setup?<span class="faq-arrow" aria-hidden="true">⌄</span></summary>
+        <p>Fully equipped from day one: my own desktop workstation, iPad, and laptop running PlanSwift, Bluebeam Revu, AutoCAD, and Excel daily, on 202.5 Mbps PLDT Fiber. No onboarding hardware, no setup delays.</p>
+      </details>
+    </div>
+    <button class="vault-banner" id="vaultOpen" aria-haspopup="dialog">
+      <span class="vault-kicker"><span class="vault-dot" aria-hidden="true"></span>Restricted — personal file</span>
+      <span class="vault-title">Click to unlock my personal side</span>
+      <span class="vault-go">Enter dimension <span aria-hidden="true">→</span></span>
+    </button>
+    <a class="about-cta" href="index.html#contact"><span>Have a project in mind?</span><strong>Let's work together <span aria-hidden="true">→</span></strong></a>
+  </div>
+</section>
+
+<!-- PERSONAL VAULT MODAL : sample content, replace with yours -->
+<div class="proj-modal" id="vaultModal" aria-hidden="true">
+  <div class="proj-backdrop" data-vault-close></div>
+  <div class="proj-card vault-card" role="dialog" aria-modal="true" aria-labelledby="vaultTitle">
+    <button class="proj-close" id="vaultClose" aria-label="Close personal side">×</button>
+    <p class="proj-tag">Personal side</p>
+    <h3 id="vaultTitle">Off the drawings</h3>
+    <div class="vault-grid">
+      <div class="proj-hero vault-hero">
+        <!-- ADD MORE VAULT PHOTOS : add { src, alt } entries to VAULT_SHOTS in hero.js -->
+        <img id="vaultHeroImg" src="./assets/IMG_2080-web.jpg" alt="Sample personal photo 1 — more of yours coming soon" draggable="false" loading="lazy">
+        <span class="proj-count" id="vaultCount">1 / 2</span>
+      </div>
+      <div>
+        <p class="proj-label">Hobbies</p>
+        <ul class="pills hobby-grid">
+          <li class="hobby" style="--i:1"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17"/><path d="M12 3.5c-3.5 4-3.5 13 0 17"/></svg>Basketball</li>
+          <li class="hobby" style="--i:2"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10" cy="10" r="6.5"/><path d="M14.8 14.8 20 20"/></svg>Pickleball</li>
+          <li class="hobby" style="--i:3"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="7.5" r="3"/><path d="M9.5 11h5l1.2 6.5H8.3z"/><path d="M7 20.5h10"/></svg>Chess</li>
+          <li class="hobby" style="--i:4"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 21V4"/><path d="M6 5h11l-3 3.5 3 3.5H6"/></svg>Game of the Generals</li>
+          <li class="hobby" style="--i:5"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7.5" width="18" height="12.5" rx="2.5"/><circle cx="12" cy="13.5" r="3.8"/><path d="M8.5 7.5 10 4.5h4l1.5 3"/></svg>Photography</li>
+          <li class="hobby" style="--i:6"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="7" width="12.5" height="10.5" rx="2.5"/><path d="M15 10.5l6-3.5v10l-6-3.5"/></svg>Videography</li>
+          <li class="hobby" style="--i:7"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h16M4 16h16"/><circle cx="9.5" cy="8" r="2.3"/><circle cx="14.5" cy="16" r="2.3"/></svg>Photo &amp; Video Editing</li>
+          <li class="hobby" style="--i:8"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="8" width="19" height="9" rx="4.5"/><path d="M8 11v3M6.5 12.5h3"/><circle cx="15.8" cy="11.6" r="1.1" fill="currentColor" stroke="none"/><circle cx="18" cy="14" r="1.1" fill="currentColor" stroke="none"/></svg>Dota 2</li>
+          <li class="hobby" style="--i:9"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3.5h16V9H4z"/><path d="M12 9v2.5"/><circle cx="12" cy="14" r="2.6"/><path d="M10 16l-1.5 5M14 16l1.5 5M10.8 18.5h2.4"/></svg>NBA 2K</li>
+          <li class="hobby" style="--i:10"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 3.5 10.5 14M21 3.5 14 21l-3.5-7L3 10.5z"/></svg>Travel</li>
+          <li class="hobby" style="--i:11"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 17.5h16"/><path d="M5 17.5a7 7 0 0 1 14 0"/><path d="M12 10.5V9"/><circle cx="12" cy="7.8" r="1.2"/></svg>Food Trips</li>
+        </ul>
+        <p class="proj-label">Socials</p>
+        <div class="connect-grid">
+          <a href="https://www.facebook.com/kraystkarl" target="_blank" rel="noopener">Facebook <span aria-hidden="true">↗</span></a>
+          <a href="https://www.instagram.com/kraystkarl/" target="_blank" rel="noopener">Instagram <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="about-inner">
+  <p class="foot"><span>© 2026 Christ Carl Tapat. All rights reserved.</span><a href="index.html">BACK TO HOME →</a></p>
+</div>
+
+<!-- CUSTOM CURSOR -->
+<div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+
+<script src="hero.js"></script>
+</body>
+</html>
